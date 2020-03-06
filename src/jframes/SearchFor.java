@@ -1,7 +1,6 @@
 package jframes;
 
 import javax.swing.JOptionPane;
-import videogamedatabase.ProgramEngine;
 
 /**
  * @author g.lumsden
@@ -10,7 +9,7 @@ public class SearchFor extends javax.swing.JFrame {
 
     // properties of the class
     private final int FORM_WIDTH = 850;
-    private final int FORM_HEIGHT = 40;
+    private final int FORM_HEIGHT = 60;
     private MainUI ui;
     public String keyword; 
 

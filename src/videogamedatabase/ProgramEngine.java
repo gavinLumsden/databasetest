@@ -89,7 +89,7 @@ public class ProgramEngine {
      * Opens a database from a saved file
      */
     public void openDatabse() {
-//        database = handler.open; 
+        database = (LinkedList<Game>)handler.openObject(FILENAME); 
     }
 
     /**
