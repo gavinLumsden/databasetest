@@ -1,10 +1,10 @@
 package videogamedatabase;
 
 import collections.LinkedList;
-import java.awt.Color;
+import io.FileHandler;
 import javax.swing.JFrame;
-import jframes.SearchBy;
-import jframes.SortBy;
+import tools.Search;
+import tools.Sort;
 
 /**
  * @author g.lumsden
@@ -13,6 +13,10 @@ public class ProgramEngine {
 
     // properties of the class
     public LinkedList<Game> database;
+    private FileHandler handler;
+    private Search search;
+    private Sort sort;
+    private final String FILENAME = "data.txt"; 
 
     /**
      * Default constructor for the class
@@ -20,6 +24,9 @@ public class ProgramEngine {
     public ProgramEngine() {
         // create a new database
         database = new LinkedList<>();
+        handler = new FileHandler(); 
+        search = new Search(); 
+        sort = new Sort(); 
     }
 
     /**
@@ -51,62 +58,38 @@ public class ProgramEngine {
         // add it to the database
         database.add(game);
     }
-
+    
     /**
-     * Gets a keyword to search with
+     * Searches the database using a keyword
+     * 
+     * @return returns the items found
      */
-    public void searchDatabase() {
-        SearchBy search = new SearchBy(this); 
+    public LinkedList<Game> searchDatabase(String keyword) {
+        // make a linked list of all the found items (games)
+        LinkedList found = new LinkedList<>(); 
+        for (int i = 0; i < database.size(); i++) {
+            Game check = database.get(i); 
+            if (check.keyword.equals(keyword)) found.add(check); 
+        }
+        // returns the found items
+        return found; 
     }
     
     /**
      * Searches the database using a keyword
      * 
-     * @param searchProperty
+     * @return returns the items found
      */
-    public void searchDatabase(String searchProperty) {
-        System.out.println("Search by: " + searchProperty);
-    }
-
-    /**
-     * Searches the database using multiple keywords
-     * 
-     * @param searchPropertys
-     */
-    public void searchDatabase(String[] searchPropertys) {
-        
+    public LinkedList<Game> sortDatabase(String sortMethod) {
+        System.out.println("to do...");
+        return null; 
     }
     
-    /**
-     * Gets a property to search with
-     */
-    public void sortDatabase() {
-        SortBy sort = new SortBy(this); 
-    }
-    
-    /**
-     * Sorts the database using a property of a game
-     * 
-     * @param sortProperty the property used to sort
-     */
-    public void sortDatabase(String sortProperty) {
-        System.out.println("Sort by: " + sortProperty);
-    }
-    
-    /**
-     * Sorts the database using multiple properties of a game
-     * 
-     * @param sortProperties the properties used to sort
-     */
-    public void sortDatabase(String[] sortProperties) {
-        
-    }
-
     /**
      * Opens a database from a saved file
      */
     public void openDatabse() {
-        
+//        database = handler.open; 
     }
 
     /**
@@ -120,7 +103,7 @@ public class ProgramEngine {
      * Saves the new database
      */
     public void saveDatabase() {
-        
+        handler.saveObject(database, FILENAME); 
     }
 
     /**

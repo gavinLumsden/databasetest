@@ -1,8 +1,10 @@
 package jframes;
 
+import collections.LinkedList;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
+import videogamedatabase.Game;
 import videogamedatabase.ProgramEngine;
 
 /**
@@ -13,7 +15,7 @@ public class MainUI extends javax.swing.JFrame {
     // properties of the class
     private final int FORM_WIDTH = 690;
     private final int FORM_HEIGHT = 690;
-    private ProgramEngine engine;
+    public ProgramEngine engine;
 
     /**
      * Default constructor for the class
@@ -63,7 +65,7 @@ public class MainUI extends javax.swing.JFrame {
         pnl2 = new javax.swing.JPanel();
         pnl2Title = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
-        txtAllGames = new javax.swing.JTextArea();
+        txtOutput = new javax.swing.JTextArea();
         btnClearDatabase = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnSort = new javax.swing.JButton();
@@ -175,9 +177,9 @@ public class MainUI extends javax.swing.JFrame {
         pnl2.add(pnl2Title);
         pnl2Title.setBounds(10, 10, 300, 14);
 
-        txtAllGames.setColumns(20);
-        txtAllGames.setRows(5);
-        jScrollPane5.setViewportView(txtAllGames);
+        txtOutput.setColumns(20);
+        txtOutput.setRows(5);
+        jScrollPane5.setViewportView(txtOutput);
 
         pnl2.add(jScrollPane5);
         jScrollPane5.setBounds(10, 30, 310, 300);
@@ -258,15 +260,15 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnClearDatabaseMouseClicked
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
-        engine.searchDatabase(); 
+        SearchFor searchFor = new SearchFor(this);  
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnSortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSortMouseClicked
-        engine.sortDatabase();
+        SortBy sortBy = new SortBy(engine); 
     }//GEN-LAST:event_btnSortMouseClicked
 
     private void btnOpenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenMouseClicked
-        engine.openDatabse(); 
+        openDatabse(); 
     }//GEN-LAST:event_btnOpenMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
@@ -321,11 +323,11 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel pnl1Title;
     private javax.swing.JPanel pnl2;
     private javax.swing.JLabel pnl2Title;
-    private javax.swing.JTextArea txtAllGames;
     private javax.swing.JTextPane txtNewAuthor;
     private javax.swing.JTextPane txtNewDate;
     private javax.swing.JTextPane txtNewKeyword;
     private javax.swing.JTextPane txtNewName;
+    private javax.swing.JTextArea txtOutput;
     // End of variables declaration//GEN-END:variables
 
     /**
@@ -354,7 +356,7 @@ public class MainUI extends javax.swing.JFrame {
                 String date = txtNewDate.getText();
                 int releaseDate = Integer.parseInt(date); 
                 engine.newGame(name, keyword, author, releaseDate);
-                txtAllGames.setText(engine.database.toString());
+                txtOutput.setText(engine.database.toString());
             }
         } catch (NullPointerException error) {
             JOptionPane.showMessageDialog(this, "Please enter something");
@@ -369,7 +371,7 @@ public class MainUI extends javax.swing.JFrame {
      */
     private void clearListDisplay() {
         engine.database.finalize();
-        txtAllGames.setText("");
+        txtOutput.setText("");
     }
 
     /**
@@ -378,5 +380,29 @@ public class MainUI extends javax.swing.JFrame {
     private void quit() {
         System.exit(0);
     }
+    
+    /**
+     * Searches the database using a keyword
+     * 
+     * @param keyword the keyword used to search
+     */
+    public void searchDatabase(String keyword) {
+        // creates the form that gets the keyword the search with
+        LinkedList<Game> found = engine.searchDatabase(keyword); 
+        for (int i = 0; i < found.size(); i++) {
+            String name        = found.get(i).name; 
+            String author      = found.get(i).author; 
+            int    releaseDate = found.get(i).releaseDate; 
+            // outputs the games found
+            JOptionPane.showMessageDialog(this, "Found the game " + name + "\n" + name + " was created by " + author + " in " + releaseDate);
+        }
+        // outputs nothing if there are no games with the keyword entered
+        if (found.isEmpty()) JOptionPane.showMessageDialog(this, "There are no games with the keyword: " + keyword);
+    }
 
+    private void openDatabse() {
+        engine.openDatabse();
+        txtOutput.setText(engine.database.toString());
+    }
+    
 }

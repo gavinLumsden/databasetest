@@ -1,15 +1,18 @@
 package videogamedatabase;
 
+import java.io.Serializable;
+
 /**
  * @author g.lumsden
+ * @param <T>
  */
-public class Game {
+public class Game <T extends Comparable<T>> implements Serializable {
 
     // properties of the class 
-    private String name;
-    private String keyword;
-    private String author;
-    private int releaseDate;
+    public String keyword;
+    public String name;
+    public String author;
+    public int releaseDate;
 
     /**
      * Default constructor for the class
