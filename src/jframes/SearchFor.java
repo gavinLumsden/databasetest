@@ -67,10 +67,11 @@ public class SearchFor extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         try {
-            if (txtKeyword.getText().equals("")) JOptionPane.showMessageDialog(this, "Please enter something");
-            else ui.searchDatabase(txtKeyword.getText());
+            String text = txtKeyword.getText(); 
+            if (text.equals("")) JOptionPane.showMessageDialog(this, "property is bad");
+            else ui.searchDatabase(text);
         } catch (NullPointerException error) {
-            JOptionPane.showMessageDialog(this, "Please enter something");
+            JOptionPane.showMessageDialog(this, "null error");
         }
         this.dispose();
     }//GEN-LAST:event_btnSearchMouseClicked

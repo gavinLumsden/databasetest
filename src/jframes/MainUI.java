@@ -407,7 +407,8 @@ public class MainUI extends javax.swing.JFrame {
      */
     public void sortDatabase(String property) {
         LinkedList<Game> sorted = engine.sortDatabase(property); 
-        if (sorted.isEmpty()) JOptionPane.showMessageDialog(this, "Please enter a correct property to search with"); 
+        if (sorted == null)   JOptionPane.showMessageDialog(this, "list is null");
+        if (sorted.isEmpty()) JOptionPane.showMessageDialog(this, "list is empty"); 
         else txtOutput.setText(sorted.toString()); 
     }
 

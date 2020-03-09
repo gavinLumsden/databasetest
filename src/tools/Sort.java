@@ -40,9 +40,33 @@ public class Sort <T extends Comparable<T>>
      * list into ascending order
      * 
      * @param list the LinkedList to sort
-     * @return the sorted list
      */
-    public LinkedList<Game> bubble(LinkedList<Game> list) {
+    public void bubble(LinkedList<T> list) {
+        if (list == null) return;                   // error check
+        boolean sorted = true;                      // flag to stop or not
+        for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+            sorted = true;                          // assume sorted
+            for (int j = 0; j < i; j++) {           // traverse again
+                T item1 = list.get(j);  
+                T item2 = list.get(j+1);
+                if (item1.compareTo(item2) > 0) {   // out of order
+                    sorted = false;                 // flag no sorted
+                    list.set(j, item2);             // swap positions
+                    list.set(j+1, item1);
+                } 
+            }
+            if (sorted) return;                     // return early
+        }
+    }
+    
+    /**
+     * An efficient implementation of a bubble sort algorithm it will sort the 
+     * list into ascending order
+     * 
+     * @param list the LinkedList to sort
+     * @return 
+     */
+    public LinkedList<Game> bubbleName(LinkedList<Game> list) {
         if (list == null) return null;                   // error check
         boolean sorted = true;                      // flag to stop or not
         for (int i = list.size()-1; i >= 0; i--) {  // traverse list
@@ -50,7 +74,85 @@ public class Sort <T extends Comparable<T>>
             for (int j = 0; j < i; j++) {           // traverse again
                 Game item1 = list.get(j);  
                 Game item2 = list.get(j+1);
-                if (item1.compareTo(item2) > 0) {   // out of order
+                if (item1.compareToName(item2) > 0) {   // out of order
+                    sorted = false;                 // flag no sorted
+                    list.set(j, item2);             // swap positions
+                    list.set(j+1, item1);
+                } 
+            }
+            if (sorted) return null;                     // return early
+        }
+        return list; 
+    }
+    
+    /**
+     * An efficient implementation of a bubble sort algorithm it will sort the 
+     * list into ascending order
+     * 
+     * @param list the LinkedList to sort
+     * @return 
+     */
+    public LinkedList<Game> bubbleKeyword(LinkedList<Game> list) {
+        if (list == null) return null;                   // error check
+        boolean sorted = true;                      // flag to stop or not
+        for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+            sorted = true;                          // assume sorted
+            for (int j = 0; j < i; j++) {           // traverse again
+                Game item1 = list.get(j);  
+                Game item2 = list.get(j+1);
+                if (item1.compareToKeyword(item2) > 0) {   // out of order
+                    sorted = false;                 // flag no sorted
+                    list.set(j, item2);             // swap positions
+                    list.set(j+1, item1);
+                } 
+            }
+            if (sorted) return null;                     // return early
+        }
+        return list; 
+    }
+    
+    /**
+     * An efficient implementation of a bubble sort algorithm it will sort the 
+     * list into ascending order
+     * 
+     * @param list the LinkedList to sort
+     * @return 
+     */
+    public LinkedList<Game> bubbleAuthor(LinkedList<Game> list) {
+        if (list == null) return null;                   // error check
+        boolean sorted = true;                      // flag to stop or not
+        for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+            sorted = true;                          // assume sorted
+            for (int j = 0; j < i; j++) {           // traverse again
+                Game item1 = list.get(j);  
+                Game item2 = list.get(j+1);
+                if (item1.compareToAuthor(item2) > 0) {   // out of order
+                    sorted = false;                 // flag no sorted
+                    list.set(j, item2);             // swap positions
+                    list.set(j+1, item1);
+                } 
+            }
+            if (sorted) return null;                     // return early
+        }
+        return list; 
+    }
+    
+    /**
+     * An efficient implementation of a bubble sort algorithm it will sort the 
+     * list into ascending order
+     * 
+     * @param list the LinkedList to sort
+     * @return 
+     */
+    public LinkedList<Game> bubbleDate(LinkedList<Game> list) {
+        if (list == null) return null;                   // error check
+        boolean sorted = true;                      // flag to stop or not
+        for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+            sorted = true;                          // assume sorted
+            for (int j = 0; j < i; j++) {           // traverse again
+                Game item1 = list.get(j);  
+                Game item2 = list.get(j+1);
+                if (item1.compareToDate(item2) > 0) {   // out of order
                     sorted = false;                 // flag no sorted
                     list.set(j, item2);             // swap positions
                     list.set(j+1, item1);

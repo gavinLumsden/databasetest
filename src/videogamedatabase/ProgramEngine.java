@@ -78,10 +78,15 @@ public class ProgramEngine {
     /**
      * Searches the database using a keyword
      * 
+     * @param property
      * @return returns the items found
      */
     public LinkedList<Game> sortDatabase(String property) {
-        return sort.bubble(database);
+        if (property.equals("name"))         return sort.bubbleName(database);
+        if (property.equals("keyword"))      return sort.bubbleKeyword(database);
+        if (property.equals("author"))       return sort.bubbleAuthor(database);
+        if (property.equals("release date")) return sort.bubbleDate(database);
+        return null; 
     }
     
     /**
