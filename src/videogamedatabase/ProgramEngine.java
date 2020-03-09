@@ -80,9 +80,8 @@ public class ProgramEngine {
      * 
      * @return returns the items found
      */
-    public LinkedList<Game> sortDatabase(String sortMethod) {
-        System.out.println("to do...");
-        return null; 
+    public LinkedList<Game> sortDatabase(String property) {
+        return sort.bubble(database);
     }
     
     /**

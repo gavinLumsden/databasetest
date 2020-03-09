@@ -1,5 +1,6 @@
 package jframes;
 
+import javax.swing.JOptionPane;
 import videogamedatabase.ProgramEngine;
 
 /**
@@ -8,102 +9,81 @@ import videogamedatabase.ProgramEngine;
 public class SortBy extends javax.swing.JFrame {
 
     // properties of the class
-    private final int FORM_WIDTH = 550; 
-    private final int FORM_HEIGHT = 200; 
-    private ProgramEngine engine; 
+    private final int FORM_WIDTH = 800;
+    private final int FORM_HEIGHT = 60;
+    private MainUI ui;
     
     /**
      * Constructor for the class
      * 
-     * @param engine
+     * @param ui
      */
-    public SortBy(ProgramEngine engine) {
+    public SortBy(MainUI ui) {
         initComponents();
-        this.engine = engine; 
-        engine.createJFrame(FORM_WIDTH, FORM_HEIGHT, this);
+        this.ui = ui; 
+        ui.engine.createJFrame(FORM_WIDTH, FORM_HEIGHT, this);
     }
 
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnKeyword = new javax.swing.JButton();
-        btnName = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
-        btnAuthor = new javax.swing.JButton();
-        btnReleaseDate = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        txtKeyword = new javax.swing.JTextArea();
+        btnSearch = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        btnKeyword.setText("Keyword");
-        btnKeyword.addMouseListener(new java.awt.event.MouseAdapter() {
+        txtKeyword.setColumns(20);
+        txtKeyword.setRows(5);
+        jScrollPane1.setViewportView(txtKeyword);
+
+        getContentPane().add(jScrollPane1);
+        jScrollPane1.setBounds(350, 10, 240, 40);
+
+        btnSearch.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        btnSearch.setText("Sort");
+        btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnKeywordMouseClicked(evt);
+                btnSearchMouseClicked(evt);
             }
         });
-        getContentPane().add(btnKeyword);
-        btnKeyword.setBounds(10, 80, 250, 30);
+        getContentPane().add(btnSearch);
+        btnSearch.setBounds(600, 10, 180, 40);
 
-        btnName.setText("Name");
-        btnName.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnNameMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnName);
-        btnName.setBounds(10, 40, 250, 30);
-
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("What do you want to sort by?");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 510, 40);
-
-        btnAuthor.setText("Author");
-        btnAuthor.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnAuthorMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnAuthor);
-        btnAuthor.setBounds(270, 40, 230, 30);
-
-        btnReleaseDate.setText("Release Date");
-        btnReleaseDate.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnReleaseDateMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnReleaseDate);
-        btnReleaseDate.setBounds(270, 80, 230, 30);
+        background.setBackground(new java.awt.Color(255, 153, 51));
+        background.setFont(new java.awt.Font("Arial", 1, 24)); // NOI18N
+        background.setText("What do you want to sort by?");
+        background.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        background.setOpaque(true);
+        getContentPane().add(background);
+        background.setBounds(0, 0, 790, 60);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnKeywordMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnKeywordMouseClicked
-        engine.sortDatabase("keyword");
-    }//GEN-LAST:event_btnKeywordMouseClicked
-
-    private void btnNameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNameMouseClicked
-        engine.sortDatabase("name");
-    }//GEN-LAST:event_btnNameMouseClicked
-
-    private void btnAuthorMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnAuthorMouseClicked
-        engine.sortDatabase("author");
-    }//GEN-LAST:event_btnAuthorMouseClicked
-
-    private void btnReleaseDateMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnReleaseDateMouseClicked
-        engine.sortDatabase("date");
-    }//GEN-LAST:event_btnReleaseDateMouseClicked
+    private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
+        try {
+            if (!txtKeyword.getText().equalsIgnoreCase("") || 
+                !txtKeyword.getText().equalsIgnoreCase("name") || 
+                !txtKeyword.getText().equalsIgnoreCase("keyword") || 
+                !txtKeyword.getText().equalsIgnoreCase("author") || 
+                !txtKeyword.getText().equalsIgnoreCase("release date")) JOptionPane.showMessageDialog(this, "Please enter a correct property to sort by");
+            else ui.sortDatabase(txtKeyword.getText());
+        } catch (NullPointerException error) {
+            JOptionPane.showMessageDialog(this, "Please enter something");
+        }
+        this.dispose();
+    }//GEN-LAST:event_btnSearchMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAuthor;
-    private javax.swing.JButton btnKeyword;
-    private javax.swing.JButton btnName;
-    private javax.swing.JButton btnReleaseDate;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel background;
+    private javax.swing.JButton btnSearch;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTextArea txtKeyword;
     // End of variables declaration//GEN-END:variables
 
 }

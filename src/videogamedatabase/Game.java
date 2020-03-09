@@ -56,4 +56,8 @@ public class Game <T extends Comparable<T>> implements Serializable {
         // to do...
     }
 
+    public int compareTo(Game that) {
+        return 0; 
+    }
+    
 }

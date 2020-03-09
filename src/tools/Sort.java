@@ -1,6 +1,7 @@
 package tools;
 
 import collections.LinkedList;
+import videogamedatabase.Game;
 
 /**
  * Sort.java - useful methods for sorting arrays and LinkedLists of generic
@@ -39,23 +40,25 @@ public class Sort <T extends Comparable<T>>
      * list into ascending order
      * 
      * @param list the LinkedList to sort
+     * @return the sorted list
      */
-    public void bubble(LinkedList<T> list) {
-        if (list == null) return;                   // error check
+    public LinkedList<Game> bubble(LinkedList<Game> list) {
+        if (list == null) return null;                   // error check
         boolean sorted = true;                      // flag to stop or not
         for (int i = list.size()-1; i >= 0; i--) {  // traverse list
             sorted = true;                          // assume sorted
             for (int j = 0; j < i; j++) {           // traverse again
-                T item1 = list.get(j);  
-                T item2 = list.get(j+1);
+                Game item1 = list.get(j);  
+                Game item2 = list.get(j+1);
                 if (item1.compareTo(item2) > 0) {   // out of order
                     sorted = false;                 // flag no sorted
                     list.set(j, item2);             // swap positions
                     list.set(j+1, item1);
                 } 
             }
-            if (sorted) return;                     // return early
+            if (sorted) return null;                     // return early
         }
+        return list; 
     }
     
     /**

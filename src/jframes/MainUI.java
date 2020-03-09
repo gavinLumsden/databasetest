@@ -264,7 +264,7 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnSortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSortMouseClicked
-        SortBy sortBy = new SortBy(engine); 
+        SortBy sortBy = new SortBy(this); 
     }//GEN-LAST:event_btnSortMouseClicked
 
     private void btnOpenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenMouseClicked
@@ -400,6 +400,20 @@ public class MainUI extends javax.swing.JFrame {
         if (found.isEmpty()) JOptionPane.showMessageDialog(this, "There are no games with the keyword: " + keyword);
     }
 
+    /**
+     * 
+     * 
+     * @param property 
+     */
+    public void sortDatabase(String property) {
+        LinkedList<Game> sorted = engine.sortDatabase(property); 
+        if (sorted.isEmpty()) JOptionPane.showMessageDialog(this, "Please enter a correct property to search with"); 
+        else txtOutput.setText(sorted.toString()); 
+    }
+
+    /**
+     * 
+     */
     private void openDatabse() {
         engine.openDatabse();
         txtOutput.setText(engine.database.toString());
