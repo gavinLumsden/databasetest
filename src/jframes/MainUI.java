@@ -416,8 +416,12 @@ public class MainUI extends javax.swing.JFrame {
      * 
      */
     private void openDatabse() {
-        engine.openDatabse();
-        txtOutput.setText(engine.database.toString());
+        try {
+            engine.openDatabse();
+            txtOutput.setText(engine.database.toString());
+        } catch (NullPointerException error) {
+            JOptionPane.showMessageDialog(this, "There is no save file");
+        }
     }
     
 }

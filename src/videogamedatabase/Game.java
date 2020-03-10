@@ -56,46 +56,16 @@ public class Game <T extends Comparable<T>> implements Serializable {
         // to do...
     }
 
-    /**
-     * 
-     * 
-     * @param that
-     * @return 
-     */
-    public int compareToName(Game that) {
-        return this.name.compareTo(that.name); 
-    }
-    
-    /**
-     * 
-     * 
-     * @param that
-     * @return 
-     */
-    public int compareToKeyword(Game that) {
-        return this.keyword.compareTo(that.keyword); 
-    }
-    
-    /**
-     * 
-     * 
-     * @param that
-     * @return 
-     */
-    public int compareToAuthor(Game that) {
-        return this.author.compareTo(that.author); 
-    }
-    
-    /**
-     * 
-     * 
-     * @param that
-     * @return 
-     */
-    public int compareToDate(Game that) {
-        if (this.releaseDate > that.releaseDate) return 1; 
-        if (this.releaseDate < that.releaseDate) return -1; 
-        else return 0; 
+    public int compareTo(Game that, String property) {
+        if (property.equals("name")) return this.name.compareTo(that.name); 
+        if (property.equals("keyword")) return this.keyword.compareTo(that.keyword); 
+        if (property.equals("author")) return this.author.compareTo(that.author); 
+        if (property.equals("release date")) {
+            if (this.releaseDate > that.releaseDate) return 1; 
+            if (this.releaseDate == that.releaseDate) return 0; 
+            if (this.releaseDate < that.releaseDate) return -1; 
+        } 
+        return 0; 
     }
     
 }

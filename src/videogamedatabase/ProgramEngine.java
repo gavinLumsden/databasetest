@@ -3,6 +3,7 @@ package videogamedatabase;
 import collections.LinkedList;
 import io.FileHandler;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import tools.Search;
 import tools.Sort;
 
@@ -82,11 +83,7 @@ public class ProgramEngine {
      * @return returns the items found
      */
     public LinkedList<Game> sortDatabase(String property) {
-        if (property.equals("name"))         return sort.bubbleName(database);
-        if (property.equals("keyword"))      return sort.bubbleKeyword(database);
-        if (property.equals("author"))       return sort.bubbleAuthor(database);
-        if (property.equals("release date")) return sort.bubbleDate(database);
-        return null; 
+        return sort.bubble(database, property); 
     }
     
     /**
