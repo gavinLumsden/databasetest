@@ -54,6 +54,8 @@ public class ProgramEngine {
      * @param releaseDate the release date of the game
      */
     public void newGame(String name, String keyword, String author, int releaseDate) {
+        // error trap, check to see if the database exists
+        if (database == null) database = new LinkedList<>(); 
         // create a new game
         Game game = new Game(name, keyword, author, releaseDate);
         // add it to the database
@@ -97,14 +99,15 @@ public class ProgramEngine {
      * Deletes the saved database
      */
     public void deleteDatabase() {
-        
+        handler.save("", FILENAME); 
     }
 
     /**
      * Saves the new database
      */
     public void saveDatabase() {
-        handler.saveObject(database, FILENAME); 
+        if (database == null) JOptionPane.showMessageDialog(null, "There is no database to save");
+        else handler.saveObject(database, FILENAME); 
     }
 
     /**

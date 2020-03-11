@@ -345,15 +345,15 @@ public class MainUI extends javax.swing.JFrame {
      */
     private void newGame() {
         try {
-            if      (txtNewName.getText().equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (txtNewKeyword.getText().equals("")) JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (txtNewAuthor.getText().equals(""))  JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (txtNewDate.getText().equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
+            String name = txtNewName.getText(); 
+            String keyword = txtNewKeyword.getText(); 
+            String author = txtNewAuthor.getText(); 
+            String date = txtNewDate.getText();
+            if      (name.equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
+            else if (keyword.equals("")) JOptionPane.showMessageDialog(this, "Please enter something");
+            else if (author.equals(""))  JOptionPane.showMessageDialog(this, "Please enter something");
+            else if (date.equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
             else {
-                String name = txtNewName.getText(); 
-                String keyword = txtNewKeyword.getText(); 
-                String author = txtNewAuthor.getText(); 
-                String date = txtNewDate.getText();
                 int releaseDate = Integer.parseInt(date); 
                 engine.newGame(name, keyword, author, releaseDate);
                 txtOutput.setText(engine.database.toString());
@@ -370,7 +370,11 @@ public class MainUI extends javax.swing.JFrame {
      * Clears the output box and the database
      */
     private void clearListDisplay() {
-        engine.database.finalize();
+        try {
+            engine.database.finalize();
+        } catch (NullPointerException error) {
+            JOptionPane.showMessageDialog(this, "list is null");
+        }
         txtOutput.setText("");
     }
 
