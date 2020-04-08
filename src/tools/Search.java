@@ -10,8 +10,7 @@ import collections.LinkedList;
  * @param <T> the generic object used in this class
  * @since Feb 9, 2017
  */
-public class Search <T extends Comparable<T>>
-{
+public class Search <T extends Comparable<T>> {
     
     /** Indicates the item being searched for is not found */
     public final int NOT_FOUND = -1;

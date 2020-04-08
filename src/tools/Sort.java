@@ -10,8 +10,7 @@ import collections.LinkedList;
  * @param <T> the generic object used in this class
  * @since Feb 9, 2017
  */
-public class Sort <T extends Comparable<T>> 
-{
+public class Sort <T extends Comparable<T>> {
        
     /**
      * A simple implementation of a bubble sort algorithm it will sort the 

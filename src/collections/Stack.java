@@ -13,8 +13,7 @@ import java.lang.reflect.Array;
  * @author Gavin Lumsden
  * @param <T> the generic object used in this class
  */
-public class Stack <T extends Comparable<T>> implements Serializable
-{
+public class Stack <T extends Comparable<T>> implements Serializable {
 
     // Node reference to the top of the stack 
     private Node top;

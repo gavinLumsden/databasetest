@@ -19,8 +19,7 @@ import java.io.PrintWriter;
  * @param <T> the generic data type to use
  * @since Dec 6, 2017 
  */
-public class FileHandler <T>
-{
+public class FileHandler <T> {
     
     private Dialogs dialog;                     // dialogs used for errors
     

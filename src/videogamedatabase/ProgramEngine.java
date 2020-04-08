@@ -11,17 +11,16 @@ import javax.swing.JOptionPane;
 public class ProgramEngine {
 
     // properties of the class
-    public        LinkedList<Game> database;
-    private       FileHandler      handler;
-    private final String           FILENAME = "data.txt"; 
+    public LinkedList<Game> database;
+    private FileHandler handler;
+    private final String FILENAME = "data.txt"; 
 
     /**
      * Default constructor for the class
      */
     public ProgramEngine() {
-        // create a new database
-        database = new LinkedList<>();
-        handler = new FileHandler(); 
+        database = new LinkedList<>(); // create a new database
+        handler = new FileHandler(); // create a file handler object, used for file managment
     }
 
     /**
@@ -59,7 +58,7 @@ public class ProgramEngine {
     }
     
     /**
-     * Searches the database using a keyword
+     * Used to search the database using a keyword
      * 
      * @return returns the items found
      */
@@ -68,7 +67,7 @@ public class ProgramEngine {
     }
     
     /**
-     * Searches the database using a keyword
+     * Used to sort the database using one of the four properties of a game
      * 
      * @return returns the items found
      */
@@ -77,25 +76,32 @@ public class ProgramEngine {
     }
     
     /**
-     * Opens a database from a saved file
+     * Opens the saved database from the file
      */
-    public void openDatabse() {
+    public void openSavedDatabse() {
         database = (LinkedList<Game>)handler.openObject(FILENAME); 
     }
 
     /**
      * Deletes the saved database
      */
-    public void deleteDatabase() {
+    public void deleteSavedDatabase() {
         handler.save("", FILENAME); 
     }
 
     /**
-     * Saves the new database
+     * Saves the new database to the file
      */
-    public void saveDatabase() {
+    public void saveNewDatabase() {
         if (database == null) JOptionPane.showMessageDialog(null, "There is no database to save");
         else handler.saveObject(database, FILENAME); 
+    }
+    
+    /**
+     * Deletes the new database
+     */
+    public void deleteNewDatabase() {
+        database.finalize();
     }
 
     /**

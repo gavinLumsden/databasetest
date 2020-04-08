@@ -2,7 +2,6 @@ package jframes;
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
-import javax.swing.JOptionPane;
 import videogamedatabase.ProgramEngine;
 
 /**
@@ -11,7 +10,7 @@ import videogamedatabase.ProgramEngine;
 public class MainUI extends javax.swing.JFrame {
 
     // properties of the class
-    private final int FORM_WIDTH = 690;
+    private final int FORM_WIDTH = 830;
     private final int FORM_HEIGHT = 510;
     public ProgramEngine engine;
 
@@ -22,7 +21,7 @@ public class MainUI extends javax.swing.JFrame {
         initComponents();
         // make a new engine
         engine = new ProgramEngine();
-        // set the properties of the form
+        // set the colours of the jpanels
         Color backgroundColor = new Color(0, 255, 255); 
         Color panelColor = new Color(255, 204, 0); 
         background.setBorder(BorderFactory.createLineBorder(Color.BLACK));
@@ -30,6 +29,7 @@ public class MainUI extends javax.swing.JFrame {
         background.setBackground(backgroundColor);
         pnl1.setBackground(panelColor);
         pnl2.setBackground(panelColor);
+        // create the jframe
         engine.createJFrame(FORM_WIDTH, FORM_HEIGHT, this);
     }
     
@@ -62,13 +62,14 @@ public class MainUI extends javax.swing.JFrame {
         pnl2Title = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtOutput = new javax.swing.JTextArea();
-        btnClearDatabase = new javax.swing.JButton();
+        btnClearDataOutput = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnSort = new javax.swing.JButton();
-        btnOpen = new javax.swing.JButton();
-        btnDelete = new javax.swing.JButton();
-        btnSave = new javax.swing.JButton();
+        btnOpenSaved = new javax.swing.JButton();
+        btnDeleteSaved = new javax.swing.JButton();
+        btnSaveNew = new javax.swing.JButton();
         btnQuit = new javax.swing.JButton();
+        btnDeleteNew = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -79,7 +80,7 @@ public class MainUI extends javax.swing.JFrame {
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblTitle.setText("Videogame Database");
         getContentPane().add(lblTitle);
-        lblTitle.setBounds(10, 0, 670, 60);
+        lblTitle.setBounds(0, 0, 830, 60);
 
         pnl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnl1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -92,39 +93,39 @@ public class MainUI extends javax.swing.JFrame {
 
         lblNewGame.setText("Enter the name of the game: ");
         pnl1.add(lblNewGame);
-        lblNewGame.setBounds(10, 30, 210, 30);
+        lblNewGame.setBounds(10, 30, 190, 30);
 
         lblNewDate.setText("Enter the release date of the game: ");
         pnl1.add(lblNewDate);
-        lblNewDate.setBounds(10, 70, 210, 30);
+        lblNewDate.setBounds(10, 70, 190, 30);
 
         lblNewAuthor.setText("Enter the author of the game: ");
         pnl1.add(lblNewAuthor);
-        lblNewAuthor.setBounds(10, 110, 210, 30);
+        lblNewAuthor.setBounds(10, 110, 190, 30);
 
         lblNewKeyword.setText("Enter the keyword of the game: ");
         pnl1.add(lblNewKeyword);
-        lblNewKeyword.setBounds(10, 150, 210, 30);
+        lblNewKeyword.setBounds(10, 150, 190, 30);
 
         jScrollPane1.setViewportView(txtNewName);
 
         pnl1.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 30, 100, 30);
+        jScrollPane1.setBounds(200, 30, 190, 30);
 
         jScrollPane2.setViewportView(txtNewDate);
 
         pnl1.add(jScrollPane2);
-        jScrollPane2.setBounds(220, 70, 100, 30);
+        jScrollPane2.setBounds(200, 70, 190, 30);
 
         jScrollPane3.setViewportView(txtNewAuthor);
 
         pnl1.add(jScrollPane3);
-        jScrollPane3.setBounds(220, 110, 100, 30);
+        jScrollPane3.setBounds(200, 110, 190, 30);
 
         jScrollPane4.setViewportView(txtNewKeyword);
 
         pnl1.add(jScrollPane4);
-        jScrollPane4.setBounds(220, 150, 100, 30);
+        jScrollPane4.setBounds(200, 150, 190, 30);
 
         btnNewGame.setText("Create new game");
         btnNewGame.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -133,19 +134,19 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         pnl1.add(btnNewGame);
-        btnNewGame.setBounds(10, 190, 310, 30);
+        btnNewGame.setBounds(10, 190, 380, 30);
 
-        btnCleartext.setText("Clear text");
+        btnCleartext.setText("Clear the text in the input boxes");
         btnCleartext.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnCleartextMouseClicked(evt);
             }
         });
         pnl1.add(btnCleartext);
-        btnCleartext.setBounds(10, 230, 310, 30);
+        btnCleartext.setBounds(10, 230, 380, 30);
 
         getContentPane().add(pnl1);
-        pnl1.setBounds(10, 60, 330, 270);
+        pnl1.setBounds(10, 60, 400, 270);
 
         pnl2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnl2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
@@ -161,19 +162,19 @@ public class MainUI extends javax.swing.JFrame {
         jScrollPane5.setViewportView(txtOutput);
 
         pnl2.add(jScrollPane5);
-        jScrollPane5.setBounds(10, 30, 310, 230);
+        jScrollPane5.setBounds(10, 30, 380, 230);
 
         getContentPane().add(pnl2);
-        pnl2.setBounds(350, 60, 330, 270);
+        pnl2.setBounds(420, 60, 400, 270);
 
-        btnClearDatabase.setText("Clear database");
-        btnClearDatabase.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClearDataOutput.setText("Clear the database output box");
+        btnClearDataOutput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnClearDatabaseMouseClicked(evt);
+                btnClearDataOutputMouseClicked(evt);
             }
         });
-        getContentPane().add(btnClearDatabase);
-        btnClearDatabase.setBounds(10, 340, 330, 30);
+        getContentPane().add(btnClearDataOutput);
+        btnClearDataOutput.setBounds(10, 340, 400, 30);
 
         btnSearch.setText("Search the database");
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -182,7 +183,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSearch);
-        btnSearch.setBounds(10, 380, 330, 30);
+        btnSearch.setBounds(10, 380, 400, 30);
 
         btnSort.setText("Sort the database");
         btnSort.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -191,36 +192,35 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSort);
-        btnSort.setBounds(10, 420, 330, 30);
+        btnSort.setBounds(10, 420, 400, 30);
 
-        btnOpen.setText("Open the current saved database");
-        btnOpen.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnOpenSaved.setText("Open the current saved database");
+        btnOpenSaved.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnOpenMouseClicked(evt);
+                btnOpenSavedMouseClicked(evt);
             }
         });
-        getContentPane().add(btnOpen);
-        btnOpen.setBounds(350, 340, 330, 30);
+        getContentPane().add(btnOpenSaved);
+        btnOpenSaved.setBounds(420, 420, 400, 30);
 
-        btnDelete.setText("Delete the current saved database");
-        btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnDeleteSaved.setText("Delete the current saved database");
+        btnDeleteSaved.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnDeleteMouseClicked(evt);
+                btnDeleteSavedMouseClicked(evt);
             }
         });
-        getContentPane().add(btnDelete);
-        btnDelete.setBounds(350, 380, 330, 30);
+        getContentPane().add(btnDeleteSaved);
+        btnDeleteSaved.setBounds(420, 460, 400, 30);
 
-        btnSave.setText("Save the new database");
-        btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnSaveNew.setText("Save the new database");
+        btnSaveNew.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSaveMouseClicked(evt);
+                btnSaveNewMouseClicked(evt);
             }
         });
-        getContentPane().add(btnSave);
-        btnSave.setBounds(350, 420, 330, 30);
+        getContentPane().add(btnSaveNew);
+        btnSaveNew.setBounds(420, 340, 400, 30);
 
-        btnQuit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnQuit.setText("Quit");
         btnQuit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -228,68 +228,84 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnQuit);
-        btnQuit.setBounds(10, 460, 670, 40);
+        btnQuit.setBounds(10, 460, 400, 30);
+
+        btnDeleteNew.setText("Delete the new database");
+        btnDeleteNew.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnDeleteNewMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnDeleteNew);
+        btnDeleteNew.setBounds(420, 380, 400, 30);
         getContentPane().add(background);
-        background.setBounds(0, 0, 690, 510);
+        background.setBounds(0, 0, 830, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClearDatabaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDatabaseMouseClicked
-        clearDatabaseOutput(); 
-    }//GEN-LAST:event_btnClearDatabaseMouseClicked
+    private void btnClearDataOutputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDataOutputMouseClicked
+        clearDatabaseOutput(); // clear the database output box
+    }//GEN-LAST:event_btnClearDataOutputMouseClicked
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
-        engine.searchDatabase(); 
+        engine.searchDatabase(); // search the database
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnSortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSortMouseClicked
-        engine.sortDatabase(); 
+        engine.sortDatabase(); // sort the database
     }//GEN-LAST:event_btnSortMouseClicked
 
-    private void btnOpenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenMouseClicked
+    private void btnOpenSavedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenSavedMouseClicked
         try {
-            engine.openDatabse(); 
-            txtOutput.setText(engine.database.toString());
+            engine.openSavedDatabse(); // open the database
+            txtOutput.setText(engine.database.toString()); // output the database
         } catch (NullPointerException error) {
-            System.out.println("null error: " + error.toString());
+            System.out.println("null error: " + error.toString()); // catch a null error
         }
-    }//GEN-LAST:event_btnOpenMouseClicked
+    }//GEN-LAST:event_btnOpenSavedMouseClicked
 
-    private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
-        engine.deleteDatabase(); 
-    }//GEN-LAST:event_btnDeleteMouseClicked
+    private void btnDeleteSavedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteSavedMouseClicked
+        engine.deleteSavedDatabase(); // delete the current saved database
+    }//GEN-LAST:event_btnDeleteSavedMouseClicked
 
-    private void btnSaveMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveMouseClicked
-        engine.saveDatabase(); 
-    }//GEN-LAST:event_btnSaveMouseClicked
+    private void btnSaveNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSaveNewMouseClicked
+        engine.saveNewDatabase(); // save the new database
+    }//GEN-LAST:event_btnSaveNewMouseClicked
 
     private void btnQuitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuitMouseClicked
-        engine.quit(); 
+        engine.quit(); // quit the program
     }//GEN-LAST:event_btnQuitMouseClicked
 
     private void btnNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewGameMouseClicked
+        // get the text from the input boxes
         String name = txtNewName.getText(); 
         String keyword = txtNewKeyword.getText(); 
         String author = txtNewAuthor.getText(); 
         String date = txtNewDate.getText();
-        engine.newGame(name,keyword,author,date); 
-        clearInputs();
+        engine.newGame(name,keyword,author,date); // create a new game using the inputs
+        txtOutput.setText(engine.database.toString()); // output the database
+        clearInputs(); // clear the input boxes
     }//GEN-LAST:event_btnNewGameMouseClicked
 
     private void btnCleartextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCleartextMouseClicked
-        clearInputs();
+        clearInputs(); // clear the input boxes
     }//GEN-LAST:event_btnCleartextMouseClicked
+
+    private void btnDeleteNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteNewMouseClicked
+        engine.deleteNewDatabase(); 
+    }//GEN-LAST:event_btnDeleteNewMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btnClearDatabase;
+    private javax.swing.JButton btnClearDataOutput;
     private javax.swing.JButton btnCleartext;
-    private javax.swing.JButton btnDelete;
+    private javax.swing.JButton btnDeleteNew;
+    private javax.swing.JButton btnDeleteSaved;
     private javax.swing.JButton btnNewGame;
-    private javax.swing.JButton btnOpen;
+    private javax.swing.JButton btnOpenSaved;
     private javax.swing.JButton btnQuit;
-    private javax.swing.JButton btnSave;
+    private javax.swing.JButton btnSaveNew;
     private javax.swing.JButton btnSearch;
     private javax.swing.JButton btnSort;
     private javax.swing.ButtonGroup buttonGroup1;
@@ -328,11 +344,6 @@ public class MainUI extends javax.swing.JFrame {
      * Clears the output box and the database
      */
     private void clearDatabaseOutput() {
-        try {
-            engine.database.finalize();
-        } catch (NullPointerException error) {
-            JOptionPane.showMessageDialog(this, "list is null");
-        }
         txtOutput.setText("");
     }
 

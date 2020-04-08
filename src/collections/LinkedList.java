@@ -10,8 +10,7 @@ import java.lang.reflect.Array;
  * @author Gavin Lumsden 
  * @param <T> the generic data type used in the class
  */
-public class LinkedList <T> implements Serializable
-{
+public class LinkedList <T> implements Serializable {
     
     /** Flag to indicate a search was not found */
     public final int NOT_FOUND = -1;

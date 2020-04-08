@@ -8,8 +8,7 @@ import collections.LinkedList;
  * @author Mr. Wachs - Created by my teacher, used with the dialogs class
  * @since Nov. 21, 2019, 3:49:35 p.m.
  */
-public class Numbers 
-{
+public class Numbers {
 
     // Encapsulated global class properties below..............................
     

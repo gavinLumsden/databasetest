@@ -9,8 +9,7 @@ import java.io.Serializable;
  * @author Gavin Lumsden
  * @param <T> the generic data type used in the class
  */
-public class Node <T> implements Serializable
-{
+public class Node <T> implements Serializable {
     
      /** the generic data to store */
     public T data;    

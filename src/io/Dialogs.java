@@ -1,7 +1,5 @@
 package io;
 
-/** required imports */
-import tools.Numbers;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -15,6 +13,7 @@ import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import tools.Numbers;
 
 /**
  * Dialogs.java - a collection of useful methods for working with dialogs
@@ -22,8 +21,7 @@ import javax.swing.JTextArea;
  * @author Mr. Wachs - Created by my teacher, used in the file handler class
  * @since Dec 12, 2017
  */
-public class Dialogs
-{
+public class Dialogs {
 
     private static final Font      DEFAULT_FONT             = new 
         javax.swing.JOptionPane().getFont();
