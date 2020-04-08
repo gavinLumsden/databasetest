@@ -1,25 +1,13 @@
-
-/** required package class namespace */
 package collections;
 
 import java.io.Serializable;
 
- 
 /**
  * Node.java - a representation of a generic node for use with
- * a LinkedList object, and could be "visualized" as:
- * 
- *                      NODE
- *                +--------------+
- * previous <---- |              |
- *                |     data     |
- *                |   (generic)  |
- *                |              |----> next
- *                +--------------+
+ * a LinkedList object
  *
- * @author Mr. Wachs 
+ * @author Gavin Lumsden
  * @param <T> the generic data type used in the class
- * @since 6-May-2019 
  */
 public class Node <T> implements Serializable
 {

@@ -1,20 +1,18 @@
 package jframes;
 
-import collections.LinkedList;
 import java.awt.Color;
 import javax.swing.BorderFactory;
 import javax.swing.JOptionPane;
-import videogamedatabase.Game;
 import videogamedatabase.ProgramEngine;
 
 /**
- * @author g.lumsden
+ * @author Gavin Lumsden
  */
 public class MainUI extends javax.swing.JFrame {
 
     // properties of the class
     private final int FORM_WIDTH = 690;
-    private final int FORM_HEIGHT = 690;
+    private final int FORM_HEIGHT = 510;
     public ProgramEngine engine;
 
     /**
@@ -43,11 +41,9 @@ public class MainUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        lblTitle = new javax.swing.JLabel();
         pnl1 = new javax.swing.JPanel();
         pnl1Title = new javax.swing.JLabel();
-        lblNewLogoImage = new javax.swing.JLabel();
-        btnSelectImage = new javax.swing.JButton();
         lblNewGame = new javax.swing.JLabel();
         lblNewDate = new javax.swing.JLabel();
         lblNewAuthor = new javax.swing.JLabel();
@@ -79,74 +75,56 @@ public class MainUI extends javax.swing.JFrame {
         setUndecorated(true);
         getContentPane().setLayout(null);
 
-        jLabel1.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
-        jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel1.setText("Videogame Database");
-        getContentPane().add(jLabel1);
-        jLabel1.setBounds(0, 0, 690, 60);
+        lblTitle.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
+        lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        lblTitle.setText("Videogame Database");
+        getContentPane().add(lblTitle);
+        lblTitle.setBounds(10, 0, 670, 60);
 
         pnl1.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnl1.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         pnl1.setLayout(null);
 
+        pnl1Title.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         pnl1Title.setText("Enter a new game: ");
         pnl1.add(pnl1Title);
         pnl1Title.setBounds(10, 10, 310, 14);
 
-        lblNewLogoImage.setBackground(new java.awt.Color(255, 255, 255));
-        lblNewLogoImage.setFont(new java.awt.Font("Arial", 1, 12)); // NOI18N
-        lblNewLogoImage.setForeground(new java.awt.Color(102, 102, 102));
-        lblNewLogoImage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        lblNewLogoImage.setText("Image here");
-        lblNewLogoImage.setBorder(javax.swing.BorderFactory.createEtchedBorder());
-        lblNewLogoImage.setOpaque(true);
-        pnl1.add(lblNewLogoImage);
-        lblNewLogoImage.setBounds(10, 30, 310, 300);
-
-        btnSelectImage.setText("Select image");
-        btnSelectImage.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnSelectImageMouseClicked(evt);
-            }
-        });
-        pnl1.add(btnSelectImage);
-        btnSelectImage.setBounds(10, 340, 310, 30);
-
         lblNewGame.setText("Enter the name of the game: ");
         pnl1.add(lblNewGame);
-        lblNewGame.setBounds(10, 380, 210, 30);
+        lblNewGame.setBounds(10, 30, 210, 30);
 
         lblNewDate.setText("Enter the release date of the game: ");
         pnl1.add(lblNewDate);
-        lblNewDate.setBounds(10, 420, 210, 30);
+        lblNewDate.setBounds(10, 70, 210, 30);
 
         lblNewAuthor.setText("Enter the author of the game: ");
         pnl1.add(lblNewAuthor);
-        lblNewAuthor.setBounds(10, 460, 210, 30);
+        lblNewAuthor.setBounds(10, 110, 210, 30);
 
         lblNewKeyword.setText("Enter the keyword of the game: ");
         pnl1.add(lblNewKeyword);
-        lblNewKeyword.setBounds(10, 500, 210, 30);
+        lblNewKeyword.setBounds(10, 150, 210, 30);
 
         jScrollPane1.setViewportView(txtNewName);
 
         pnl1.add(jScrollPane1);
-        jScrollPane1.setBounds(220, 380, 100, 30);
+        jScrollPane1.setBounds(220, 30, 100, 30);
 
         jScrollPane2.setViewportView(txtNewDate);
 
         pnl1.add(jScrollPane2);
-        jScrollPane2.setBounds(220, 420, 100, 30);
+        jScrollPane2.setBounds(220, 70, 100, 30);
 
         jScrollPane3.setViewportView(txtNewAuthor);
 
         pnl1.add(jScrollPane3);
-        jScrollPane3.setBounds(220, 460, 100, 30);
+        jScrollPane3.setBounds(220, 110, 100, 30);
 
         jScrollPane4.setViewportView(txtNewKeyword);
 
         pnl1.add(jScrollPane4);
-        jScrollPane4.setBounds(220, 500, 100, 30);
+        jScrollPane4.setBounds(220, 150, 100, 30);
 
         btnNewGame.setText("Create new game");
         btnNewGame.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -155,7 +133,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         pnl1.add(btnNewGame);
-        btnNewGame.setBounds(10, 540, 310, 30);
+        btnNewGame.setBounds(10, 190, 310, 30);
 
         btnCleartext.setText("Clear text");
         btnCleartext.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -164,15 +142,16 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         pnl1.add(btnCleartext);
-        btnCleartext.setBounds(10, 580, 310, 30);
+        btnCleartext.setBounds(10, 230, 310, 30);
 
         getContentPane().add(pnl1);
-        pnl1.setBounds(10, 60, 330, 620);
+        pnl1.setBounds(10, 60, 330, 270);
 
         pnl2.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         pnl2.setFont(new java.awt.Font("Arial", 0, 11)); // NOI18N
         pnl2.setLayout(null);
 
+        pnl2Title.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         pnl2Title.setText("All games: ");
         pnl2.add(pnl2Title);
         pnl2Title.setBounds(10, 10, 300, 14);
@@ -182,7 +161,10 @@ public class MainUI extends javax.swing.JFrame {
         jScrollPane5.setViewportView(txtOutput);
 
         pnl2.add(jScrollPane5);
-        jScrollPane5.setBounds(10, 30, 310, 300);
+        jScrollPane5.setBounds(10, 30, 310, 230);
+
+        getContentPane().add(pnl2);
+        pnl2.setBounds(350, 60, 330, 270);
 
         btnClearDatabase.setText("Clear database");
         btnClearDatabase.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -190,8 +172,8 @@ public class MainUI extends javax.swing.JFrame {
                 btnClearDatabaseMouseClicked(evt);
             }
         });
-        pnl2.add(btnClearDatabase);
-        btnClearDatabase.setBounds(10, 340, 310, 30);
+        getContentPane().add(btnClearDatabase);
+        btnClearDatabase.setBounds(10, 340, 330, 30);
 
         btnSearch.setText("Search the database");
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -199,8 +181,8 @@ public class MainUI extends javax.swing.JFrame {
                 btnSearchMouseClicked(evt);
             }
         });
-        pnl2.add(btnSearch);
-        btnSearch.setBounds(10, 380, 310, 30);
+        getContentPane().add(btnSearch);
+        btnSearch.setBounds(10, 380, 330, 30);
 
         btnSort.setText("Sort the database");
         btnSort.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -208,8 +190,8 @@ public class MainUI extends javax.swing.JFrame {
                 btnSortMouseClicked(evt);
             }
         });
-        pnl2.add(btnSort);
-        btnSort.setBounds(10, 420, 310, 30);
+        getContentPane().add(btnSort);
+        btnSort.setBounds(10, 420, 330, 30);
 
         btnOpen.setText("Open the current saved database");
         btnOpen.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -217,8 +199,8 @@ public class MainUI extends javax.swing.JFrame {
                 btnOpenMouseClicked(evt);
             }
         });
-        pnl2.add(btnOpen);
-        btnOpen.setBounds(10, 460, 310, 30);
+        getContentPane().add(btnOpen);
+        btnOpen.setBounds(350, 340, 330, 30);
 
         btnDelete.setText("Delete the current saved database");
         btnDelete.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -226,8 +208,8 @@ public class MainUI extends javax.swing.JFrame {
                 btnDeleteMouseClicked(evt);
             }
         });
-        pnl2.add(btnDelete);
-        btnDelete.setBounds(10, 500, 310, 30);
+        getContentPane().add(btnDelete);
+        btnDelete.setBounds(350, 380, 330, 30);
 
         btnSave.setText("Save the new database");
         btnSave.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -235,40 +217,43 @@ public class MainUI extends javax.swing.JFrame {
                 btnSaveMouseClicked(evt);
             }
         });
-        pnl2.add(btnSave);
-        btnSave.setBounds(10, 540, 310, 30);
+        getContentPane().add(btnSave);
+        btnSave.setBounds(350, 420, 330, 30);
 
+        btnQuit.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
         btnQuit.setText("Quit");
         btnQuit.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 btnQuitMouseClicked(evt);
             }
         });
-        pnl2.add(btnQuit);
-        btnQuit.setBounds(10, 580, 310, 30);
-
-        getContentPane().add(pnl2);
-        pnl2.setBounds(350, 60, 330, 620);
+        getContentPane().add(btnQuit);
+        btnQuit.setBounds(10, 460, 670, 40);
         getContentPane().add(background);
-        background.setBounds(0, 0, 690, 690);
+        background.setBounds(0, 0, 690, 510);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnClearDatabaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDatabaseMouseClicked
-        clearListDisplay(); 
+        clearDatabaseOutput(); 
     }//GEN-LAST:event_btnClearDatabaseMouseClicked
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
-        SearchFor searchFor = new SearchFor(this);  
+        engine.searchDatabase(); 
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnSortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSortMouseClicked
-        SortBy sortBy = new SortBy(this); 
+        engine.sortDatabase(); 
     }//GEN-LAST:event_btnSortMouseClicked
 
     private void btnOpenMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenMouseClicked
-        openDatabse(); 
+        try {
+            engine.openDatabse(); 
+            txtOutput.setText(engine.database.toString());
+        } catch (NullPointerException error) {
+            System.out.println("null error: " + error.toString());
+        }
     }//GEN-LAST:event_btnOpenMouseClicked
 
     private void btnDeleteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteMouseClicked
@@ -280,15 +265,16 @@ public class MainUI extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSaveMouseClicked
 
     private void btnQuitMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnQuitMouseClicked
-        quit(); 
+        engine.quit(); 
     }//GEN-LAST:event_btnQuitMouseClicked
 
-    private void btnSelectImageMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSelectImageMouseClicked
-        engine.selectImage(); 
-    }//GEN-LAST:event_btnSelectImageMouseClicked
-
     private void btnNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewGameMouseClicked
-        newGame(); 
+        String name = txtNewName.getText(); 
+        String keyword = txtNewKeyword.getText(); 
+        String author = txtNewAuthor.getText(); 
+        String date = txtNewDate.getText();
+        engine.newGame(name,keyword,author,date); 
+        clearInputs();
     }//GEN-LAST:event_btnNewGameMouseClicked
 
     private void btnCleartextMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCleartextMouseClicked
@@ -305,10 +291,8 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JButton btnQuit;
     private javax.swing.JButton btnSave;
     private javax.swing.JButton btnSearch;
-    private javax.swing.JButton btnSelectImage;
     private javax.swing.JButton btnSort;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
@@ -318,7 +302,7 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JLabel lblNewDate;
     private javax.swing.JLabel lblNewGame;
     private javax.swing.JLabel lblNewKeyword;
-    private javax.swing.JLabel lblNewLogoImage;
+    private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnl1;
     private javax.swing.JLabel pnl1Title;
     private javax.swing.JPanel pnl2;
@@ -339,37 +323,11 @@ public class MainUI extends javax.swing.JFrame {
         txtNewAuthor.setText("");
         txtNewDate.setText("");
     }
-
-    /**
-     * creates a new game
-     */
-    private void newGame() {
-        try {
-            String name = txtNewName.getText(); 
-            String keyword = txtNewKeyword.getText(); 
-            String author = txtNewAuthor.getText(); 
-            String date = txtNewDate.getText();
-            if      (name.equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (keyword.equals("")) JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (author.equals(""))  JOptionPane.showMessageDialog(this, "Please enter something");
-            else if (date.equals(""))    JOptionPane.showMessageDialog(this, "Please enter something");
-            else {
-                int releaseDate = Integer.parseInt(date); 
-                engine.newGame(name, keyword, author, releaseDate);
-                txtOutput.setText(engine.database.toString());
-            }
-        } catch (NullPointerException error) {
-            JOptionPane.showMessageDialog(this, "Please enter something");
-        } catch (NumberFormatException error) {
-            JOptionPane.showMessageDialog(this, "Please enter the correct information in the correct box");
-        }
-        clearInputs();
-    }
     
     /**
      * Clears the output box and the database
      */
-    private void clearListDisplay() {
+    private void clearDatabaseOutput() {
         try {
             engine.database.finalize();
         } catch (NullPointerException error) {
@@ -378,54 +336,4 @@ public class MainUI extends javax.swing.JFrame {
         txtOutput.setText("");
     }
 
-    /**
-     * Quits the program
-     */
-    private void quit() {
-        System.exit(0);
-    }
-    
-    /**
-     * Searches the database using a keyword
-     * 
-     * @param keyword the keyword used to search
-     */
-    public void searchDatabase(String keyword) {
-        // creates the form that gets the keyword the search with
-        LinkedList<Game> found = engine.searchDatabase(keyword); 
-        for (int i = 0; i < found.size(); i++) {
-            String name        = found.get(i).name; 
-            String author      = found.get(i).author; 
-            int    releaseDate = found.get(i).releaseDate; 
-            // outputs the games found
-            JOptionPane.showMessageDialog(this, "Found the game " + name + "\n" + name + " was created by " + author + " in " + releaseDate);
-        }
-        // outputs nothing if there are no games with the keyword entered
-        if (found.isEmpty()) JOptionPane.showMessageDialog(this, "There are no games with the keyword: " + keyword);
-    }
-
-    /**
-     * 
-     * 
-     * @param property 
-     */
-    public void sortDatabase(String property) {
-        LinkedList<Game> sorted = engine.sortDatabase(property); 
-        if (sorted == null)   JOptionPane.showMessageDialog(this, "list is null");
-        if (sorted.isEmpty()) JOptionPane.showMessageDialog(this, "list is empty"); 
-        else txtOutput.setText(sorted.toString()); 
-    }
-
-    /**
-     * 
-     */
-    private void openDatabse() {
-        try {
-            engine.openDatabse();
-            txtOutput.setText(engine.database.toString());
-        } catch (NullPointerException error) {
-            JOptionPane.showMessageDialog(this, "There is no save file");
-        }
-    }
-    
 }

@@ -1,7 +1,5 @@
-/** required package class namespace */
 package io;
 
-/** required imports */
 import collections.LinkedList;
 import java.io.BufferedReader;
 import java.io.File;
@@ -17,10 +15,9 @@ import java.io.PrintWriter;
 /**
  * FileHandler.java - a collection of useful methods for working with files
  *
- * @author Mr. Wachs 
+ * @author Mr. Wachs - Created by my teacher, used for file managment
  * @param <T> the generic data type to use
  * @since Dec 6, 2017 
- * @instructor Mr. Wachs
  */
 public class FileHandler <T>
 {

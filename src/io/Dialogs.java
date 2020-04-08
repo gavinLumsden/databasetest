@@ -1,5 +1,3 @@
-
-/** required package class namespace */
 package io;
 
 /** required imports */
@@ -21,9 +19,8 @@ import javax.swing.JTextArea;
 /**
  * Dialogs.java - a collection of useful methods for working with dialogs
  *
- * @author Mr. Wachs
+ * @author Mr. Wachs - Created by my teacher, used in the file handler class
  * @since Dec 12, 2017
- * @instructor Mr. Wachs
  */
 public class Dialogs
 {

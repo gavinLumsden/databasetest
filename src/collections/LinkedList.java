@@ -1,28 +1,14 @@
-
-/** required package class namespace */
 package collections;
 
-/** required imports */
 import java.io.Serializable;
 import java.lang.reflect.Array;
 
-
 /**
  * LinkedList.java - an implementation of a linked list abstract (advanced)
- * data (dynamic) type (ADT) and useful methods, and could be "visualized" as:
+ * data (dynamic) type (ADT) and useful methods
  * 
- *             +------+       +------+       +------+       +------+      
- *  null <---- |      | <---- |      | <---- |      | <---- |      |  
- *             | NODE |       | NODE |       | NODE |       | NODE |       
- *             |      |---->  |      |---->  |      |---->  |      |----> null  
- *             +------+       +------+       +------+       +------+      
- *                 ^                                           ^
- *                 |                                           |
- *                head                                        tail
- * 
- * @author Mr. Wachs 
+ * @author Gavin Lumsden 
  * @param <T> the generic data type used in the class
- * @since 6-May-2019 
  */
 public class LinkedList <T> implements Serializable
 {

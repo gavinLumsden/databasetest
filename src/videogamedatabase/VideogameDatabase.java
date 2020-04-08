@@ -3,7 +3,7 @@ package videogamedatabase;
 import jframes.MainUI;
 
 /**
- * @author g.lumsden
+ * @author Gavin Lumsden
  */
 public class VideogameDatabase {
 

@@ -1,7 +1,6 @@
 package tools;
 
 import collections.LinkedList;
-import videogamedatabase.Game;
 
 /**
  * Sort.java - useful methods for sorting arrays and LinkedLists of generic
@@ -10,7 +9,6 @@ import videogamedatabase.Game;
  * @author Gavin Lumsden
  * @param <T> the generic object used in this class
  * @since Feb 9, 2017
- * @instructor Mr. Wachs
  */
 public class Sort <T extends Comparable<T>> 
 {
@@ -58,33 +56,7 @@ public class Sort <T extends Comparable<T>>
             if (sorted) return;                     // return early
         }
     }
-    
-    /**
-     * An efficient implementation of a bubble sort algorithm it will sort the 
-     * list into ascending order
-     * 
-     * @param list the LinkedList to sort
-     * @return 
-     */
-    public LinkedList<Game> bubble(LinkedList<Game> list, String property) {
-        if (list == null) return null;                   // error check
-        boolean sorted = true;                      // flag to stop or not
-        for (int i = list.size()-1; i >= 0; i--) {  // traverse list
-            sorted = true;                          // assume sorted
-            for (int j = 0; j < i; j++) {           // traverse again
-                Game item1 = list.get(j);  
-                Game item2 = list.get(j+1);
-                if (item1.compareTo(item2, property) > 0) {   // out of order
-                    sorted = false;                 // flag no sorted
-                    list.set(j, item2);             // swap positions
-                    list.set(j+1, item1);
-                } 
-            }
-            if (sorted) return null;                     // return early
-        }
-        return list; 
-    }
-        
+            
     /**
      * An implementation of a selection sort algorithm it will sort the array
      * into ascending order

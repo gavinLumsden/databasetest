@@ -4,20 +4,16 @@ import collections.LinkedList;
 import io.FileHandler;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import tools.Search;
-import tools.Sort;
 
 /**
- * @author g.lumsden
+ * @author Gavin Lumsden
  */
 public class ProgramEngine {
 
     // properties of the class
-    public LinkedList<Game> database;
-    private FileHandler handler;
-    private Search search;
-    private Sort sort;
-    private final String FILENAME = "data.txt"; 
+    public        LinkedList<Game> database;
+    private       FileHandler      handler;
+    private final String           FILENAME = "data.txt"; 
 
     /**
      * Default constructor for the class
@@ -26,8 +22,6 @@ public class ProgramEngine {
         // create a new database
         database = new LinkedList<>();
         handler = new FileHandler(); 
-        search = new Search(); 
-        sort = new Sort(); 
     }
 
     /**
@@ -53,39 +47,33 @@ public class ProgramEngine {
      * @param author the author of the game
      * @param releaseDate the release date of the game
      */
-    public void newGame(String name, String keyword, String author, int releaseDate) {
-        // error trap, check to see if the database exists
-        if (database == null) database = new LinkedList<>(); 
-        // create a new game
-        Game game = new Game(name, keyword, author, releaseDate);
-        // add it to the database
-        database.add(game);
-    }
-    
-    /**
-     * Searches the database using a keyword
-     * 
-     * @return returns the items found
-     */
-    public LinkedList<Game> searchDatabase(String keyword) {
-        // make a linked list of all the found items (games)
-        LinkedList found = new LinkedList<>(); 
-        for (int i = 0; i < database.size(); i++) {
-            Game check = database.get(i); 
-            if (check.keyword.equals(keyword)) found.add(check); 
+    public void newGame(String name,String keyword,String author,String releaseDate) {
+        try {
+            // create a new game
+            Game game = new Game(name,keyword,author,releaseDate);
+            // add it to the database
+            database.add(game);
+        } catch (NullPointerException error) {
+            System.out.println("null error: " + error.toString());
         }
-        // returns the found items
-        return found; 
     }
     
     /**
      * Searches the database using a keyword
      * 
-     * @param property
      * @return returns the items found
      */
-    public LinkedList<Game> sortDatabase(String property) {
-        return sort.bubble(database, property); 
+    public LinkedList<Game> searchDatabase() {
+        return null; 
+    }
+    
+    /**
+     * Searches the database using a keyword
+     * 
+     * @return returns the items found
+     */
+    public LinkedList<Game> sortDatabase() {
+        return null; 
     }
     
     /**
@@ -111,10 +99,10 @@ public class ProgramEngine {
     }
 
     /**
-     * Selects an image for a game 
+     * Quits the program
      */
-    public void selectImage() {
-        
+    public void quit() {
+        System.exit(0);
     }
 
 }

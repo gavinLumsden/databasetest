@@ -3,7 +3,7 @@ package collections;
 import java.io.Serializable;
 
 /**
- * @author g.lumsden
+ * @author Gavin Lumsden
  * @param <T>
  */
 public class Queue<T extends Comparable<T>> implements Serializable {

@@ -9,7 +9,6 @@ import collections.LinkedList;
  * @author Gavin Lumsden
  * @param <T> the generic object used in this class
  * @since Feb 9, 2017
- * @instructor Mr. Wachs
  */
 public class Search <T extends Comparable<T>>
 {

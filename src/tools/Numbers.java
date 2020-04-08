@@ -1,15 +1,11 @@
-
-/** required package class namespace */
 package tools;
 
-/** required imports */
 import collections.LinkedList;
 
- 
 /**
  * Numbers.java - a collection of useful methods for working with numbers
  *
- * @author Mr. Wachs
+ * @author Mr. Wachs - Created by my teacher, used with the dialogs class
  * @since Nov. 21, 2019, 3:49:35 p.m.
  */
 public class Numbers 

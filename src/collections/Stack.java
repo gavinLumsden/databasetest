@@ -3,19 +3,12 @@ package collections;
 import java.io.Serializable;
 import java.lang.reflect.Array;
 
- 
 /**
  * Stack.java - a Stack ADT using generics. The stack class represents a 
  * last-in-first-out (LIFO) stack of generic objects. The usual push and pop
  * methods are provided, as well as a method to peek at the top item on the 
  * stack, a method to test for whether the stack is empty. When a stack is 
- * first created, it contains no items. It can be visualized as:
- * 
- *       top -------> item    (items are removed and added to the top)
- *                    item
- *                    item
- *                    item
- *       bottom ----> item    (a null at the bottom indicates an empty stack)
+ * first created, it contains no items. 
  *
  * @author Gavin Lumsden
  * @param <T> the generic object used in this class
