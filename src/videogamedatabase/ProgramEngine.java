@@ -4,6 +4,8 @@ import collections.LinkedList;
 import io.FileHandler;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import tools.Search;
+import tools.Sort;
 
 /**
  * @author Gavin Lumsden
@@ -13,7 +15,11 @@ public class ProgramEngine {
     // properties of the class
     public LinkedList<Game> database;
     private FileHandler handler;
+    private Sort sort; 
+    private Search search; 
+    
     private final String FILENAME = "data.txt"; 
+    private final int NOT_FOUND = -1; 
 
     /**
      * Default constructor for the class
@@ -21,6 +27,8 @@ public class ProgramEngine {
     public ProgramEngine() {
         database = new LinkedList<>(); // create a new database
         handler = new FileHandler(); // create a file handler object, used for file managment
+        sort = new Sort(); 
+        search = new Search(); 
     }
 
     /**
@@ -59,20 +67,49 @@ public class ProgramEngine {
     
     /**
      * Used to search the database using a keyword
-     * 
-     * @return returns the items found
      */
-    public LinkedList<Game> searchDatabase() {
-        return null; 
+    public void searchDatabase() {
+        try {
+            String input = JOptionPane.showInputDialog("Enter the name of the game you are searching for"); 
+            input.toLowerCase(); 
+            LinkedList<String> names = new LinkedList(); 
+            for (int i = 0; i < database.size(); i++) {
+                names.add(database.get(i).name); 
+            }
+            int index = search.linear(input, names); 
+            if (index == NOT_FOUND) JOptionPane.showMessageDialog(null, "No games were found with the name: " + input);
+            else {
+                String author  = database.get(index).author; 
+                String date    = database.get(index).releaseDate; 
+                String keyword = database.get(index).keyword; 
+                String name    = database.get(index).name; 
+                JOptionPane.showMessageDialog(
+                    null, 
+                    "Found the game: " + name + "\n\n" + 
+                    name + " was created on " + date + 
+                    " by " + author + "\n" + 
+                    name + " is a " + keyword + " game.");
+            }
+        } catch (NullPointerException error) {
+            System.out.println("null error: " + error.toString());
+        }
     }
     
     /**
      * Used to sort the database using one of the four properties of a game
-     * 
-     * @return returns the items found
      */
-    public LinkedList<Game> sortDatabase() {
-        return null; 
+    public void sortDatabase() {
+        try {
+            String input = JOptionPane.showInputDialog("What would you like to sort by?"); 
+            input.toLowerCase(); 
+            if (input.equals("author") || 
+                input.equals("release date") || 
+                input.equals("keyword") || 
+                input.equals("name")) sort.bubble(database, input);
+            else JOptionPane.showMessageDialog(null, "Please enter a property of a video game");
+        } catch (NullPointerException error) {
+            System.out.println("null error: " + error.toString());
+        }
     }
     
     /**

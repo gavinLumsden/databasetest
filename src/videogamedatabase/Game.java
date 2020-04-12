@@ -14,8 +14,6 @@ public class Game <T extends Comparable<T>> implements Serializable {
     public String author;
     public String releaseDate;
     
-    public final int BAD_PROPERTY = Integer.MIN_VALUE; 
-
     /**
      * Default constructor for the class
      *
@@ -40,18 +38,10 @@ public class Game <T extends Comparable<T>> implements Serializable {
     public String toString() {
         String text = ""; 
         text += "Name: "           + name; 
-        text += ", Keyword: "      + keyword; 
         text += ", Author: "       + author; 
         text += ", Release date: " + releaseDate; 
+        text += ", Keyword: "      + keyword; 
         return text; 
-    }
-
-    public int compareTo(Game that, String property) {
-        if (property.equals("name"))         return this.name.compareTo(that.name); 
-        if (property.equals("keyword"))      return this.keyword.compareTo(that.keyword); 
-        if (property.equals("author"))       return this.author.compareTo(that.author); 
-        if (property.equals("release date")) return this.author.compareTo(that.author); 
-        return BAD_PROPERTY; 
     }
     
 }

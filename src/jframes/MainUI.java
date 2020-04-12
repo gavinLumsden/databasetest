@@ -159,6 +159,7 @@ public class MainUI extends javax.swing.JFrame {
 
         txtOutput.setColumns(20);
         txtOutput.setRows(5);
+        txtOutput.setFocusable(false);
         jScrollPane5.setViewportView(txtOutput);
 
         pnl2.add(jScrollPane5);
@@ -250,16 +251,18 @@ public class MainUI extends javax.swing.JFrame {
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         engine.searchDatabase(); // search the database
+        outputDatabase();
     }//GEN-LAST:event_btnSearchMouseClicked
 
     private void btnSortMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSortMouseClicked
         engine.sortDatabase(); // sort the database
+        outputDatabase(); 
     }//GEN-LAST:event_btnSortMouseClicked
 
     private void btnOpenSavedMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOpenSavedMouseClicked
         try {
             engine.openSavedDatabse(); // open the database
-            txtOutput.setText(engine.database.toString()); // output the database
+            outputDatabase();
         } catch (NullPointerException error) {
             System.out.println("null error: " + error.toString()); // catch a null error
         }
@@ -284,7 +287,7 @@ public class MainUI extends javax.swing.JFrame {
         String author = txtNewAuthor.getText(); 
         String date = txtNewDate.getText();
         engine.newGame(name,keyword,author,date); // create a new game using the inputs
-        txtOutput.setText(engine.database.toString()); // output the database
+        outputDatabase();
         clearInputs(); // clear the input boxes
     }//GEN-LAST:event_btnNewGameMouseClicked
 
@@ -345,6 +348,13 @@ public class MainUI extends javax.swing.JFrame {
      */
     private void clearDatabaseOutput() {
         txtOutput.setText("");
+    }
+
+    /**
+     * Output the database
+     */
+    private void outputDatabase() {
+        txtOutput.setText(engine.database.toString());
     }
 
 }

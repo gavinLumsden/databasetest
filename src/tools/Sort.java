@@ -1,6 +1,7 @@
 package tools;
 
 import collections.LinkedList;
+import videogamedatabase.Game;
 
 /**
  * Sort.java - useful methods for sorting arrays and LinkedLists of generic
@@ -53,6 +54,86 @@ public class Sort <T extends Comparable<T>> {
                 } 
             }
             if (sorted) return;                     // return early
+        }
+    }
+    
+    /**
+     * An efficient implementation of a bubble sort algorithm it will sort the 
+     * list into ascending order
+     * 
+     * @param list the LinkedList to sort
+     * @param property
+     */
+    public void bubble(LinkedList<Game> list, String property) {
+        if (list == null) return;                   // error check
+        boolean sorted = true;                      // flag to stop or not
+        if (property.equals("author")) {
+            for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+                sorted = true;                          // assume sorted
+                for (int j = 0; j < i; j++) {           // traverse again
+                    Game game1 = list.get(j); 
+                    Game game2 = list.get(j+1); 
+                    String item1 = list.get(j).author;  
+                    String item2 = list.get(j+1).author;
+                    if (item1.compareTo(item2) > 0) {   // out of order
+                        sorted = false;                 // flag no sorted
+                        list.set(j, game2);             // swap positions
+                        list.set(j+1, game1);
+                    } 
+                }
+                if (sorted) return;                     // return early
+            }
+        }
+        if (property.equals("release date")) {
+            for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+                sorted = true;                          // assume sorted
+                for (int j = 0; j < i; j++) {           // traverse again
+                    Game game1 = list.get(j); 
+                    Game game2 = list.get(j+1); 
+                    String item1 = list.get(j).releaseDate;  
+                    String item2 = list.get(j+1).releaseDate;
+                    if (item1.compareTo(item2) > 0) {   // out of order
+                        sorted = false;                 // flag no sorted
+                        list.set(j, game2);             // swap positions
+                        list.set(j+1, game1);
+                    } 
+                }
+                if (sorted) return;                     // return early
+            }
+        }
+        if (property.equals("keyword")) {
+            for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+                sorted = true;                          // assume sorted
+                for (int j = 0; j < i; j++) {           // traverse again
+                    Game game1 = list.get(j); 
+                    Game game2 = list.get(j+1); 
+                    String item1 = list.get(j).keyword;  
+                    String item2 = list.get(j+1).keyword;
+                    if (item1.compareTo(item2) > 0) {   // out of order
+                        sorted = false;                 // flag no sorted
+                        list.set(j, game2);             // swap positions
+                        list.set(j+1, game1);
+                    } 
+                }
+                if (sorted) return;                     // return early
+            }
+        }
+        if (property.equals("name")) {
+            for (int i = list.size()-1; i >= 0; i--) {  // traverse list
+                sorted = true;                          // assume sorted
+                for (int j = 0; j < i; j++) {           // traverse again
+                    Game game1 = list.get(j); 
+                    Game game2 = list.get(j+1); 
+                    String item1 = list.get(j).name;  
+                    String item2 = list.get(j+1).name;
+                    if (item1.compareTo(item2) > 0) {   // out of order
+                        sorted = false;                 // flag no sorted
+                        list.set(j, game2);             // swap positions
+                        list.set(j+1, game1);
+                    } 
+                }
+                if (sorted) return;                     // return early
+            }
         }
     }
             
