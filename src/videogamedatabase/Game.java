@@ -9,30 +9,30 @@ import java.io.Serializable;
 public class Game <T extends Comparable<T>> implements Serializable {
 
     // properties of the class 
-    public String keyword;
-    public String name;
     public String author;
+    public String genre;
+    public String name;
     public String releaseDate;
     
     /**
      * Default constructor for the class
      *
-     * @param name the name of the game
-     * @param keyword the keyword used to search for
      * @param author the author of the game
+     * @param genre the genre of the game
+     * @param name the name of the game
      * @param releaseDate the release date of the game
      */
-    public Game(String name,String keyword,String author,String releaseDate) {
-        this.name        = name;
-        this.keyword     = keyword;
-        this.author      = author;
+    public Game(String author,String genre,String name,String releaseDate) {
+        this.author = author;
+        this.genre  = genre;
+        this.name   = name;
         this.releaseDate = releaseDate;
     }
 
     /**
-     * Turns the class into a string
+     * Returns a string that represents the class
      *
-     * @return return the text as a string
+     * @return returns the string
      */
     @Override
     public String toString() {
@@ -40,7 +40,7 @@ public class Game <T extends Comparable<T>> implements Serializable {
         text += "Name: "           + name; 
         text += ", Author: "       + author; 
         text += ", Release date: " + releaseDate; 
-        text += ", Keyword: "      + keyword; 
+        text += ", Genre: "        + genre; 
         return text; 
     }
     

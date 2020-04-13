@@ -45,17 +45,17 @@ public class MainUI extends javax.swing.JFrame {
         pnl1 = new javax.swing.JPanel();
         pnl1Title = new javax.swing.JLabel();
         lblNewGame = new javax.swing.JLabel();
-        lblNewDate = new javax.swing.JLabel();
+        lblNewReleaseDate = new javax.swing.JLabel();
         lblNewAuthor = new javax.swing.JLabel();
-        lblNewKeyword = new javax.swing.JLabel();
+        lblNewGenre = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         txtNewName = new javax.swing.JTextPane();
         jScrollPane2 = new javax.swing.JScrollPane();
-        txtNewDate = new javax.swing.JTextPane();
+        txtNewReleaseDate = new javax.swing.JTextPane();
         jScrollPane3 = new javax.swing.JScrollPane();
         txtNewAuthor = new javax.swing.JTextPane();
         jScrollPane4 = new javax.swing.JScrollPane();
-        txtNewKeyword = new javax.swing.JTextPane();
+        txtNewGenre = new javax.swing.JTextPane();
         btnNewGame = new javax.swing.JButton();
         btnCleartext = new javax.swing.JButton();
         pnl2 = new javax.swing.JPanel();
@@ -93,39 +93,39 @@ public class MainUI extends javax.swing.JFrame {
 
         lblNewGame.setText("Enter the name of the game: ");
         pnl1.add(lblNewGame);
-        lblNewGame.setBounds(10, 30, 190, 30);
+        lblNewGame.setBounds(10, 30, 200, 30);
 
-        lblNewDate.setText("Enter the release date of the game: ");
-        pnl1.add(lblNewDate);
-        lblNewDate.setBounds(10, 70, 190, 30);
+        lblNewReleaseDate.setText("Enter the release date of the game: ");
+        pnl1.add(lblNewReleaseDate);
+        lblNewReleaseDate.setBounds(10, 70, 200, 30);
 
         lblNewAuthor.setText("Enter the author of the game: ");
         pnl1.add(lblNewAuthor);
-        lblNewAuthor.setBounds(10, 110, 190, 30);
+        lblNewAuthor.setBounds(10, 110, 200, 30);
 
-        lblNewKeyword.setText("Enter the keyword of the game: ");
-        pnl1.add(lblNewKeyword);
-        lblNewKeyword.setBounds(10, 150, 190, 30);
+        lblNewGenre.setText("Enter the genre of the game: ");
+        pnl1.add(lblNewGenre);
+        lblNewGenre.setBounds(10, 150, 200, 30);
 
         jScrollPane1.setViewportView(txtNewName);
 
         pnl1.add(jScrollPane1);
-        jScrollPane1.setBounds(200, 30, 190, 30);
+        jScrollPane1.setBounds(210, 30, 180, 30);
 
-        jScrollPane2.setViewportView(txtNewDate);
+        jScrollPane2.setViewportView(txtNewReleaseDate);
 
         pnl1.add(jScrollPane2);
-        jScrollPane2.setBounds(200, 70, 190, 30);
+        jScrollPane2.setBounds(210, 70, 180, 30);
 
         jScrollPane3.setViewportView(txtNewAuthor);
 
         pnl1.add(jScrollPane3);
-        jScrollPane3.setBounds(200, 110, 190, 30);
+        jScrollPane3.setBounds(210, 110, 180, 30);
 
-        jScrollPane4.setViewportView(txtNewKeyword);
+        jScrollPane4.setViewportView(txtNewGenre);
 
         pnl1.add(jScrollPane4);
-        jScrollPane4.setBounds(200, 150, 190, 30);
+        jScrollPane4.setBounds(210, 150, 180, 30);
 
         btnNewGame.setText("Create new game");
         btnNewGame.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -282,11 +282,11 @@ public class MainUI extends javax.swing.JFrame {
 
     private void btnNewGameMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnNewGameMouseClicked
         // get the text from the input boxes
-        String name = txtNewName.getText(); 
-        String keyword = txtNewKeyword.getText(); 
-        String author = txtNewAuthor.getText(); 
-        String date = txtNewDate.getText();
-        engine.newGame(name,keyword,author,date); // create a new game using the inputs
+        String author      = txtNewAuthor.getText(); 
+        String genre       = txtNewGenre.getText(); 
+        String name        = txtNewName.getText(); 
+        String releaseDate = txtNewReleaseDate.getText();
+        engine.newGame(author,genre,name,releaseDate); // create a new game using the inputs
         outputDatabase();
         clearInputs(); // clear the input boxes
     }//GEN-LAST:event_btnNewGameMouseClicked
@@ -297,6 +297,7 @@ public class MainUI extends javax.swing.JFrame {
 
     private void btnDeleteNewMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDeleteNewMouseClicked
         engine.deleteNewDatabase(); 
+        outputDatabase();
     }//GEN-LAST:event_btnDeleteNewMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -318,18 +319,18 @@ public class MainUI extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
     private javax.swing.JLabel lblNewAuthor;
-    private javax.swing.JLabel lblNewDate;
     private javax.swing.JLabel lblNewGame;
-    private javax.swing.JLabel lblNewKeyword;
+    private javax.swing.JLabel lblNewGenre;
+    private javax.swing.JLabel lblNewReleaseDate;
     private javax.swing.JLabel lblTitle;
     private javax.swing.JPanel pnl1;
     private javax.swing.JLabel pnl1Title;
     private javax.swing.JPanel pnl2;
     private javax.swing.JLabel pnl2Title;
     private javax.swing.JTextPane txtNewAuthor;
-    private javax.swing.JTextPane txtNewDate;
-    private javax.swing.JTextPane txtNewKeyword;
+    private javax.swing.JTextPane txtNewGenre;
     private javax.swing.JTextPane txtNewName;
+    private javax.swing.JTextPane txtNewReleaseDate;
     private javax.swing.JTextArea txtOutput;
     // End of variables declaration//GEN-END:variables
 
@@ -337,10 +338,10 @@ public class MainUI extends javax.swing.JFrame {
      * Clears all the text boxes
      */
     private void clearInputs() {
-        txtNewName.setText("");
-        txtNewKeyword.setText("");
         txtNewAuthor.setText("");
-        txtNewDate.setText("");
+        txtNewGenre.setText("");
+        txtNewName.setText("");
+        txtNewReleaseDate.setText("");
     }
     
     /**
@@ -354,7 +355,8 @@ public class MainUI extends javax.swing.JFrame {
      * Output the database
      */
     private void outputDatabase() {
-        txtOutput.setText(engine.database.toString());
+        if (engine.database == null || engine.database.isEmpty()) txtOutput.setText("");
+        else txtOutput.setText(engine.database.toString());
     }
 
 }

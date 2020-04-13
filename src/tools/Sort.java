@@ -84,14 +84,14 @@ public class Sort <T extends Comparable<T>> {
                 if (sorted) return;                     // return early
             }
         }
-        if (property.equals("release date")) {
+        if (property.equals("genre")) {
             for (int i = list.size()-1; i >= 0; i--) {  // traverse list
                 sorted = true;                          // assume sorted
                 for (int j = 0; j < i; j++) {           // traverse again
                     Game game1 = list.get(j); 
                     Game game2 = list.get(j+1); 
-                    String item1 = list.get(j).releaseDate;  
-                    String item2 = list.get(j+1).releaseDate;
+                    String item1 = list.get(j).genre;  
+                    String item2 = list.get(j+1).genre;
                     if (item1.compareTo(item2) > 0) {   // out of order
                         sorted = false;                 // flag no sorted
                         list.set(j, game2);             // swap positions
@@ -101,14 +101,14 @@ public class Sort <T extends Comparable<T>> {
                 if (sorted) return;                     // return early
             }
         }
-        if (property.equals("keyword")) {
+        if (property.equals("release date")) {
             for (int i = list.size()-1; i >= 0; i--) {  // traverse list
                 sorted = true;                          // assume sorted
                 for (int j = 0; j < i; j++) {           // traverse again
                     Game game1 = list.get(j); 
                     Game game2 = list.get(j+1); 
-                    String item1 = list.get(j).keyword;  
-                    String item2 = list.get(j+1).keyword;
+                    String item1 = list.get(j).releaseDate;  
+                    String item2 = list.get(j+1).releaseDate;
                     if (item1.compareTo(item2) > 0) {   // out of order
                         sorted = false;                 // flag no sorted
                         list.set(j, game2);             // swap positions

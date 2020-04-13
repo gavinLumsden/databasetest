@@ -13,22 +13,23 @@ import tools.Sort;
 public class ProgramEngine {
 
     // properties of the class
-    public LinkedList<Game> database;
-    private FileHandler handler;
-    private Sort sort; 
-    private Search search; 
+    public  LinkedList<Game> database;
     
-    private final String FILENAME = "data.txt"; 
-    private final int NOT_FOUND = -1; 
+    private FileHandler handler;
+    private Sort        sort; 
+    private Search      search; 
+    
+    private final String FILENAME  = "data.txt"; 
+    private final int    NOT_FOUND = -1; 
 
     /**
      * Default constructor for the class
      */
     public ProgramEngine() {
         database = new LinkedList<>(); // create a new database
-        handler = new FileHandler(); // create a file handler object, used for file managment
-        sort = new Sort(); 
-        search = new Search(); 
+        handler  = new FileHandler(); // create a file handler object, used for file managment
+        sort     = new Sort(); 
+        search   = new Search(); 
     }
 
     /**
@@ -50,48 +51,45 @@ public class ProgramEngine {
      * Creates a new game and adds it to the database
      *
      * @param name the name of the game
-     * @param keyword the keyword used to search for
+     * @param genre the genre of the game
      * @param author the author of the game
      * @param releaseDate the release date of the game
      */
-    public void newGame(String name,String keyword,String author,String releaseDate) {
-        try {
-            // create a new game
-            Game game = new Game(name,keyword,author,releaseDate);
-            // add it to the database
-            database.add(game);
-        } catch (NullPointerException error) {
-            System.out.println("null error: " + error.toString());
+    public void newGame(String name,String genre,String author,String releaseDate) {
+        if (database == null || database.isEmpty()) database = new LinkedList(); // error trap, checks to see if the database exists
+        author = author.strip();
+        genre  = genre.strip();
+        name   = name.strip();
+        releaseDate = releaseDate.strip();
+        if (author.equals("") || author == null || 
+            genre.equals("")  || genre  == null || 
+            name.equals("")   || name   == null || 
+            releaseDate.equals("") || releaseDate == null) output("Please fill out all the boxes!"); 
+        else {
+            Game game = new Game(name,genre,author,releaseDate); // create a new game
+            database.add(game); // add it to the database
         }
     }
     
     /**
-     * Used to search the database using a keyword
+     * Used to search the database using an input from the user
      */
     public void searchDatabase() {
-        try {
-            String input = JOptionPane.showInputDialog("Enter the name of the game you are searching for"); 
-            input.toLowerCase(); 
-            LinkedList<String> names = new LinkedList(); 
-            for (int i = 0; i < database.size(); i++) {
-                names.add(database.get(i).name); 
-            }
-            int index = search.linear(input, names); 
-            if (index == NOT_FOUND) JOptionPane.showMessageDialog(null, "No games were found with the name: " + input);
-            else {
-                String author  = database.get(index).author; 
-                String date    = database.get(index).releaseDate; 
-                String keyword = database.get(index).keyword; 
-                String name    = database.get(index).name; 
-                JOptionPane.showMessageDialog(
-                    null, 
-                    "Found the game: " + name + "\n\n" + 
-                    name + " was created on " + date + 
-                    " by " + author + "\n" + 
-                    name + " is a " + keyword + " game.");
-            }
-        } catch (NullPointerException error) {
-            System.out.println("null error: " + error.toString());
+        String input = input("Enter the name of the game you are searching for"); 
+        LinkedList<String> names = new LinkedList(); 
+        for (int i = 0; i < database.size(); i++) {
+            names.add(database.get(i).name); 
+        }
+        int index = search.linear(input, names); 
+        if (index == NOT_FOUND) output("No games were found with the name: " + input); 
+        else {
+            String author  = database.get(index).author; 
+            String date    = database.get(index).releaseDate; 
+            String genre   = database.get(index).genre; 
+            String name    = database.get(index).name; 
+            output("Found the game: " + name + "\n\n" + 
+                name + " was created on " + date + " by " + author + "\n" + 
+                name + " is a " + genre + " game."); 
         }
     }
     
@@ -100,13 +98,12 @@ public class ProgramEngine {
      */
     public void sortDatabase() {
         try {
-            String input = JOptionPane.showInputDialog("What would you like to sort by?"); 
-            input.toLowerCase(); 
+            String input = input("What would you like to sort by?"); 
             if (input.equals("author") || 
                 input.equals("release date") || 
-                input.equals("keyword") || 
+                input.equals("genre") || 
                 input.equals("name")) sort.bubble(database, input);
-            else JOptionPane.showMessageDialog(null, "Please enter a property of a video game");
+            else output("Please enter a property of a video game"); 
         } catch (NullPointerException error) {
             System.out.println("null error: " + error.toString());
         }
@@ -130,7 +127,7 @@ public class ProgramEngine {
      * Saves the new database to the file
      */
     public void saveNewDatabase() {
-        if (database == null) JOptionPane.showMessageDialog(null, "There is no database to save");
+        if (database == null) output("There is no database to save"); 
         else handler.saveObject(database, FILENAME); 
     }
     
@@ -146,6 +143,34 @@ public class ProgramEngine {
      */
     public void quit() {
         System.exit(0);
+    }
+    
+    /**
+     * Outputs a message to the user
+     * @param text the message that is displayed
+     */
+    private void output(String text) {
+        JOptionPane.showMessageDialog(null, text);
+    }
+    
+    /**
+     * Asks the user to input a string 
+     * @param text the message that is displayed
+     * @return returns the input
+     */
+    private String input(String text) {
+        String input = ""; 
+        boolean check = true; 
+        do {
+            input = JOptionPane.showInputDialog(text); 
+            if (input == null || input.equals("")) {
+                output("Please enter something!");
+                check = false; 
+            } 
+            else check = true; 
+        } while (check == false); 
+        input = input.toLowerCase(); 
+        return input;
     }
 
 }

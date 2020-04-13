@@ -84,17 +84,17 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="30" width="190" height="30"/>
+              <AbsoluteConstraints x="10" y="30" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewDate">
+        <Component class="javax.swing.JLabel" name="lblNewReleaseDate">
           <Properties>
             <Property name="text" type="java.lang.String" value="Enter the release date of the game: "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="70" width="190" height="30"/>
+              <AbsoluteConstraints x="10" y="70" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -104,17 +104,17 @@
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="110" width="190" height="30"/>
+              <AbsoluteConstraints x="10" y="110" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
-        <Component class="javax.swing.JLabel" name="lblNewKeyword">
+        <Component class="javax.swing.JLabel" name="lblNewGenre">
           <Properties>
-            <Property name="text" type="java.lang.String" value="Enter the keyword of the game: "/>
+            <Property name="text" type="java.lang.String" value="Enter the genre of the game: "/>
           </Properties>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="10" y="150" width="190" height="30"/>
+              <AbsoluteConstraints x="10" y="150" width="200" height="30"/>
             </Constraint>
           </Constraints>
         </Component>
@@ -124,7 +124,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="200" y="30" width="190" height="30"/>
+              <AbsoluteConstraints x="210" y="30" width="180" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -140,13 +140,13 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="200" y="70" width="190" height="30"/>
+              <AbsoluteConstraints x="210" y="70" width="180" height="30"/>
             </Constraint>
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="txtNewDate">
+            <Component class="javax.swing.JTextPane" name="txtNewReleaseDate">
             </Component>
           </SubComponents>
         </Container>
@@ -156,7 +156,7 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="200" y="110" width="190" height="30"/>
+              <AbsoluteConstraints x="210" y="110" width="180" height="30"/>
             </Constraint>
           </Constraints>
 
@@ -172,13 +172,13 @@
           </AuxValues>
           <Constraints>
             <Constraint layoutClass="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout" value="org.netbeans.modules.form.compat2.layouts.DesignAbsoluteLayout$AbsoluteConstraintsDescription">
-              <AbsoluteConstraints x="200" y="150" width="190" height="30"/>
+              <AbsoluteConstraints x="210" y="150" width="180" height="30"/>
             </Constraint>
           </Constraints>
 
           <Layout class="org.netbeans.modules.form.compat2.layouts.support.JScrollPaneSupportLayout"/>
           <SubComponents>
-            <Component class="javax.swing.JTextPane" name="txtNewKeyword">
+            <Component class="javax.swing.JTextPane" name="txtNewGenre">
             </Component>
           </SubComponents>
         </Container>
