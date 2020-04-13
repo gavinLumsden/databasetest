@@ -44,4 +44,16 @@ public class Game <T extends Comparable<T>> implements Serializable {
         return text; 
     }
     
+    /**
+     * Returns a sentence that represents the class
+     *
+     * @return returns the sentence as a string
+     */
+    public String toSentence() {
+        String text = name + ": \n\n" + 
+                name + " is a game created in " + releaseDate + " by " + author + ".\n" + 
+                name + " is a " + genre + " game.";
+        return text; 
+    }
+   
 }

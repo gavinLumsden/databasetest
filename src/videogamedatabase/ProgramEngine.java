@@ -61,6 +61,10 @@ public class ProgramEngine {
         genre  = genre.strip();
         name   = name.strip();
         releaseDate = releaseDate.strip();
+        author = author.toLowerCase();
+        genre  = genre.toLowerCase();
+        name   = name.toLowerCase();
+        releaseDate = releaseDate.toLowerCase();
         if (author.equals("") || author == null || 
             genre.equals("")  || genre  == null || 
             name.equals("")   || name   == null || 
@@ -83,13 +87,8 @@ public class ProgramEngine {
         int index = search.linear(input, names); 
         if (index == NOT_FOUND) output("No games were found with the name: " + input); 
         else {
-            String author  = database.get(index).author; 
-            String date    = database.get(index).releaseDate; 
-            String genre   = database.get(index).genre; 
-            String name    = database.get(index).name; 
-            output("Found the game: " + name + "\n\n" + 
-                name + " was created on " + date + " by " + author + "\n" + 
-                name + " is a " + genre + " game."); 
+            String text = database.get(index).toSentence(); 
+            output("Found " + text); 
         }
     }
     
@@ -100,9 +99,9 @@ public class ProgramEngine {
         try {
             String input = input("What would you like to sort by?"); 
             if (input.equals("author") || 
-                input.equals("release date") || 
                 input.equals("genre") || 
-                input.equals("name")) sort.bubble(database, input);
+                input.equals("name") || 
+                input.equals("release date")) sort.bubble(database, input);
             else output("Please enter a property of a video game"); 
         } catch (NullPointerException error) {
             System.out.println("null error: " + error.toString());

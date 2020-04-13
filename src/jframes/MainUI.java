@@ -11,7 +11,7 @@ public class MainUI extends javax.swing.JFrame {
 
     // properties of the class
     private final int FORM_WIDTH = 830;
-    private final int FORM_HEIGHT = 510;
+    private final int FORM_HEIGHT = 500;
     public ProgramEngine engine;
 
     /**
@@ -41,6 +41,7 @@ public class MainUI extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
+        btnQuit = new javax.swing.JButton();
         lblTitle = new javax.swing.JLabel();
         pnl1 = new javax.swing.JPanel();
         pnl1Title = new javax.swing.JLabel();
@@ -62,19 +63,30 @@ public class MainUI extends javax.swing.JFrame {
         pnl2Title = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtOutput = new javax.swing.JTextArea();
-        btnClearDataOutput = new javax.swing.JButton();
+        btnClearDatabaseOutput = new javax.swing.JButton();
+        btnOutputDatabase = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnSort = new javax.swing.JButton();
         btnOpenSaved = new javax.swing.JButton();
         btnDeleteSaved = new javax.swing.JButton();
         btnSaveNew = new javax.swing.JButton();
-        btnQuit = new javax.swing.JButton();
         btnDeleteNew = new javax.swing.JButton();
         background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(null);
+
+        btnQuit.setForeground(new java.awt.Color(255, 0, 0));
+        btnQuit.setText("X");
+        btnQuit.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(0, 0, 0)));
+        btnQuit.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnQuitMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnQuit);
+        btnQuit.setBounds(780, 10, 40, 40);
 
         lblTitle.setFont(new java.awt.Font("Arial", 1, 48)); // NOI18N
         lblTitle.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -93,39 +105,39 @@ public class MainUI extends javax.swing.JFrame {
 
         lblNewGame.setText("Enter the name of the game: ");
         pnl1.add(lblNewGame);
-        lblNewGame.setBounds(10, 30, 200, 30);
+        lblNewGame.setBounds(10, 30, 210, 30);
 
         lblNewReleaseDate.setText("Enter the release date of the game: ");
         pnl1.add(lblNewReleaseDate);
-        lblNewReleaseDate.setBounds(10, 70, 200, 30);
+        lblNewReleaseDate.setBounds(10, 110, 210, 30);
 
         lblNewAuthor.setText("Enter the author of the game: ");
         pnl1.add(lblNewAuthor);
-        lblNewAuthor.setBounds(10, 110, 200, 30);
+        lblNewAuthor.setBounds(10, 70, 210, 30);
 
         lblNewGenre.setText("Enter the genre of the game: ");
         pnl1.add(lblNewGenre);
-        lblNewGenre.setBounds(10, 150, 200, 30);
+        lblNewGenre.setBounds(10, 150, 210, 30);
 
         jScrollPane1.setViewportView(txtNewName);
 
         pnl1.add(jScrollPane1);
-        jScrollPane1.setBounds(210, 30, 180, 30);
+        jScrollPane1.setBounds(220, 30, 170, 30);
 
         jScrollPane2.setViewportView(txtNewReleaseDate);
 
         pnl1.add(jScrollPane2);
-        jScrollPane2.setBounds(210, 70, 180, 30);
+        jScrollPane2.setBounds(220, 110, 170, 30);
 
         jScrollPane3.setViewportView(txtNewAuthor);
 
         pnl1.add(jScrollPane3);
-        jScrollPane3.setBounds(210, 110, 180, 30);
+        jScrollPane3.setBounds(220, 70, 170, 30);
 
         jScrollPane4.setViewportView(txtNewGenre);
 
         pnl1.add(jScrollPane4);
-        jScrollPane4.setBounds(210, 150, 180, 30);
+        jScrollPane4.setBounds(220, 150, 170, 30);
 
         btnNewGame.setText("Create new game");
         btnNewGame.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -168,14 +180,23 @@ public class MainUI extends javax.swing.JFrame {
         getContentPane().add(pnl2);
         pnl2.setBounds(420, 60, 400, 270);
 
-        btnClearDataOutput.setText("Clear the database output box");
-        btnClearDataOutput.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnClearDatabaseOutput.setText("Clear the output box");
+        btnClearDatabaseOutput.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnClearDataOutputMouseClicked(evt);
+                btnClearDatabaseOutputMouseClicked(evt);
             }
         });
-        getContentPane().add(btnClearDataOutput);
-        btnClearDataOutput.setBounds(10, 340, 400, 30);
+        getContentPane().add(btnClearDatabaseOutput);
+        btnClearDatabaseOutput.setBounds(10, 380, 400, 30);
+
+        btnOutputDatabase.setText("Output the current database");
+        btnOutputDatabase.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnOutputDatabaseMouseClicked(evt);
+            }
+        });
+        getContentPane().add(btnOutputDatabase);
+        btnOutputDatabase.setBounds(10, 340, 400, 30);
 
         btnSearch.setText("Search the database");
         btnSearch.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -184,7 +205,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSearch);
-        btnSearch.setBounds(10, 380, 400, 30);
+        btnSearch.setBounds(10, 420, 400, 30);
 
         btnSort.setText("Sort the database");
         btnSort.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -193,7 +214,7 @@ public class MainUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btnSort);
-        btnSort.setBounds(10, 420, 400, 30);
+        btnSort.setBounds(10, 460, 400, 30);
 
         btnOpenSaved.setText("Open the current saved database");
         btnOpenSaved.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -222,15 +243,6 @@ public class MainUI extends javax.swing.JFrame {
         getContentPane().add(btnSaveNew);
         btnSaveNew.setBounds(420, 340, 400, 30);
 
-        btnQuit.setText("Quit");
-        btnQuit.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnQuitMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnQuit);
-        btnQuit.setBounds(10, 460, 400, 30);
-
         btnDeleteNew.setText("Delete the new database");
         btnDeleteNew.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -240,14 +252,14 @@ public class MainUI extends javax.swing.JFrame {
         getContentPane().add(btnDeleteNew);
         btnDeleteNew.setBounds(420, 380, 400, 30);
         getContentPane().add(background);
-        background.setBounds(0, 0, 830, 510);
+        background.setBounds(0, 0, 830, 500);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void btnClearDataOutputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDataOutputMouseClicked
+    private void btnClearDatabaseOutputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDatabaseOutputMouseClicked
         clearDatabaseOutput(); // clear the database output box
-    }//GEN-LAST:event_btnClearDataOutputMouseClicked
+    }//GEN-LAST:event_btnClearDatabaseOutputMouseClicked
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         engine.searchDatabase(); // search the database
@@ -300,14 +312,19 @@ public class MainUI extends javax.swing.JFrame {
         outputDatabase();
     }//GEN-LAST:event_btnDeleteNewMouseClicked
 
+    private void btnOutputDatabaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutputDatabaseMouseClicked
+        outputDatabase();
+    }//GEN-LAST:event_btnOutputDatabaseMouseClicked
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
-    private javax.swing.JButton btnClearDataOutput;
+    private javax.swing.JButton btnClearDatabaseOutput;
     private javax.swing.JButton btnCleartext;
     private javax.swing.JButton btnDeleteNew;
     private javax.swing.JButton btnDeleteSaved;
     private javax.swing.JButton btnNewGame;
     private javax.swing.JButton btnOpenSaved;
+    private javax.swing.JButton btnOutputDatabase;
     private javax.swing.JButton btnQuit;
     private javax.swing.JButton btnSaveNew;
     private javax.swing.JButton btnSearch;
