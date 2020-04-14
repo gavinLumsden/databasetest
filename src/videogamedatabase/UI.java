@@ -69,8 +69,8 @@ public class UI extends javax.swing.JFrame {
         btnDeleteSaved = new javax.swing.JButton();
         btnSaveNew = new javax.swing.JButton();
         btnDeleteNew = new javax.swing.JButton();
-        background = new javax.swing.JLabel();
         btnClearDatabaseOutput = new javax.swing.JButton();
+        background = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -242,6 +242,10 @@ public class UI extends javax.swing.JFrame {
         getContentPane().add(btnDeleteNew);
         btnDeleteNew.setBounds(420, 380, 400, 30);
 
+        btnClearDatabaseOutput.setText("Clear the output box");
+        getContentPane().add(btnClearDatabaseOutput);
+        btnClearDatabaseOutput.setBounds(10, 380, 400, 30);
+
         background.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 backgroundMouseClicked(evt);
@@ -249,10 +253,6 @@ public class UI extends javax.swing.JFrame {
         });
         getContentPane().add(background);
         background.setBounds(0, 0, 830, 500);
-
-        btnClearDatabaseOutput.setText("Clear the output box");
-        getContentPane().add(btnClearDatabaseOutput);
-        btnClearDatabaseOutput.setBounds(10, 380, 400, 30);
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
