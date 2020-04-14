@@ -1,4 +1,4 @@
-package jframes;
+package videogamedatabase;
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
@@ -7,7 +7,7 @@ import videogamedatabase.ProgramEngine;
 /**
  * @author Gavin Lumsden
  */
-public class MainUI extends javax.swing.JFrame {
+public class UI extends javax.swing.JFrame {
 
     // properties of the class
     private final int FORM_WIDTH = 830;
@@ -17,7 +17,7 @@ public class MainUI extends javax.swing.JFrame {
     /**
      * Default constructor for the class
      */
-    public MainUI() {
+    public UI() {
         initComponents();
         // make a new engine
         engine = new ProgramEngine();
@@ -63,7 +63,6 @@ public class MainUI extends javax.swing.JFrame {
         pnl2Title = new javax.swing.JLabel();
         jScrollPane5 = new javax.swing.JScrollPane();
         txtOutput = new javax.swing.JTextArea();
-        btnClearDatabaseOutput = new javax.swing.JButton();
         btnOutputDatabase = new javax.swing.JButton();
         btnSearch = new javax.swing.JButton();
         btnSort = new javax.swing.JButton();
@@ -72,6 +71,7 @@ public class MainUI extends javax.swing.JFrame {
         btnSaveNew = new javax.swing.JButton();
         btnDeleteNew = new javax.swing.JButton();
         background = new javax.swing.JLabel();
+        btnClearDatabaseOutput = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -180,15 +180,6 @@ public class MainUI extends javax.swing.JFrame {
         getContentPane().add(pnl2);
         pnl2.setBounds(420, 60, 400, 270);
 
-        btnClearDatabaseOutput.setText("Clear the output box");
-        btnClearDatabaseOutput.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btnClearDatabaseOutputMouseClicked(evt);
-            }
-        });
-        getContentPane().add(btnClearDatabaseOutput);
-        btnClearDatabaseOutput.setBounds(10, 380, 400, 30);
-
         btnOutputDatabase.setText("Output the current database");
         btnOutputDatabase.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -251,15 +242,21 @@ public class MainUI extends javax.swing.JFrame {
         });
         getContentPane().add(btnDeleteNew);
         btnDeleteNew.setBounds(420, 380, 400, 30);
+
+        background.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                backgroundMouseClicked(evt);
+            }
+        });
         getContentPane().add(background);
         background.setBounds(0, 0, 830, 500);
 
+        btnClearDatabaseOutput.setText("Clear the output box");
+        getContentPane().add(btnClearDatabaseOutput);
+        btnClearDatabaseOutput.setBounds(10, 380, 400, 30);
+
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnClearDatabaseOutputMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnClearDatabaseOutputMouseClicked
-        clearDatabaseOutput(); // clear the database output box
-    }//GEN-LAST:event_btnClearDatabaseOutputMouseClicked
 
     private void btnSearchMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnSearchMouseClicked
         engine.searchDatabase(); // search the database
@@ -315,6 +312,10 @@ public class MainUI extends javax.swing.JFrame {
     private void btnOutputDatabaseMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOutputDatabaseMouseClicked
         outputDatabase();
     }//GEN-LAST:event_btnOutputDatabaseMouseClicked
+
+    private void backgroundMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_backgroundMouseClicked
+        clearDatabaseOutput(); // clears the database output box
+    }//GEN-LAST:event_backgroundMouseClicked
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel background;
