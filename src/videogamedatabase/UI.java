@@ -2,7 +2,6 @@ package videogamedatabase;
 
 import java.awt.Color;
 import javax.swing.BorderFactory;
-import videogamedatabase.ProgramEngine;
 
 /**
  * @author Gavin Lumsden
@@ -12,7 +11,7 @@ public class UI extends javax.swing.JFrame {
     // properties of the class
     private final int FORM_WIDTH = 830;
     private final int FORM_HEIGHT = 500;
-    public ProgramEngine engine;
+    public Engine engine;
 
     /**
      * Default constructor for the class
@@ -20,7 +19,7 @@ public class UI extends javax.swing.JFrame {
     public UI() {
         initComponents();
         // make a new engine
-        engine = new ProgramEngine();
+        engine = new Engine();
         // set the colours of the jpanels
         Color backgroundColor = new Color(0, 255, 255); 
         Color panelColor = new Color(255, 204, 0); 

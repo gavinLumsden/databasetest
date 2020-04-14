@@ -10,7 +10,7 @@ import tools.Sort;
 /**
  * @author Gavin Lumsden
  */
-public class ProgramEngine {
+public class Engine {
 
     // properties of the class
     public  LinkedList<Game> database;
@@ -25,7 +25,7 @@ public class ProgramEngine {
     /**
      * Default constructor for the class
      */
-    public ProgramEngine() {
+    public Engine() {
         database = new LinkedList<>(); // create a new database
         handler  = new FileHandler(); // create a file handler object, used for file managment
         sort     = new Sort(); 
